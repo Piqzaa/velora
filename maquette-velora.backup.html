@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora — Le coin préféré de votre chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<style>
+  :root{
+    --cream:#F6F1E7;
+    --paper:#FFFFFF;
+    --ink:#262420;
+    --ink-soft:#5A564E;
+    --sage:#6E7C5B;
+    --sage-dark:#4C5740;
+    --honey:#C89B4B;
+    --rust:#A65A38;
+    --line: rgba(38,36,32,0.12);
+    --radius: 4px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><g fill='%23FFFFFF' stroke='%23262420' stroke-width='1.5'><ellipse cx='15' cy='19' rx='8' ry='6.5'/><ellipse cx='6' cy='9' rx='2.6' ry='3.4' transform='rotate(-18 6 9)'/><ellipse cx='12.5' cy='4.5' rx='2.6' ry='3.6' transform='rotate(-6 12.5 4.5)'/><ellipse cx='18.5' cy='4.5' rx='2.6' ry='3.6' transform='rotate(6 18.5 4.5)'/><ellipse cx='24' cy='9' rx='2.6' ry='3.4' transform='rotate(18 24 9)'/></g></svg>") 15 15, auto;
+  }
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; }
+  .split-word{ display:inline-block; opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease; }
+  .split-word.is-visible{ opacity:1; transform:translateY(0); }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  #cursorTrail{ position:fixed; width:12px; height:12px; border-radius:50%; background:var(--honey); pointer-events:none; z-index:999; opacity:0; transition:opacity .4s ease; mix-blend-mode:difference; will-change:transform; }
+  .btn-primary, .btn-light, .nav-cta{ will-change:transform; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+  section{ position:relative; }
+
+  /* reveal */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-clip{ clip-path:inset(0 0 0 100%); transition:clip-path 1.2s cubic-bezier(0.22,1,0.36,1); }
+  .reveal-clip.is-visible{ clip-path:inset(0 0 0 0); }
+  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} .reveal-clip{clip-path:none;} }
+
+  /* ---------- NAV ---------- */
+  nav{ position:fixed; top:0; left:0; right:0; z-index:50; padding:22px 0; background:rgba(246,241,231,0.55); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-bottom:1px solid transparent; transition:border-color .3s ease, background .3s ease;}
+  nav.scrolled{ border-color:var(--line); }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; }
+  .logo{ font-family:'Fraunces', serif; font-size:22px; font-weight:600; letter-spacing:0.01em; }
+  .logo span{ color:var(--sage-dark); font-style:italic; }
+  .nav-links{ display:flex; gap:36px; font-size:14px; }
+  .nav-links a{ opacity:0.75; transition:opacity .2s; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{ font-size:14px; border:1px solid var(--ink); padding:9px 20px; border-radius:999px; transition:background .2s, color .2s; }
+  .nav-cta:hover{ background:var(--ink); color:var(--cream); }
+  .nav-mobile-hide{ display:flex; }
+  #progressBar{ position:absolute; bottom:0; left:0; height:3px; width:0%; background:var(--honey); transition:width .1s linear; }
+  @media (max-width:780px){ .nav-mobile-hide{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{ min-height:100vh; display:flex; align-items:center; padding-top:100px; padding-bottom:60px; overflow:hidden; position:relative; }
+  .hero-bg{ position:absolute; inset:0; z-index:0; }
+  .hero-bg img, .hero-bg video{ width:100%; height:100%; object-fit:cover; }
+  .hero-bg::after{ content:''; position:absolute; inset:0; background:linear-gradient(100deg, rgba(38,36,32,0.78) 0%, rgba(38,36,32,0.60) 30%, rgba(38,36,32,0.35) 60%, rgba(38,36,32,0.60) 100%); }
+  .hero-bg .vignette{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 50%, rgba(38,36,32,0.4) 100%); pointer-events:none; z-index:1; }
+  .hero .wrap{ position:relative; z-index:1; display:block; max-width:1180px; }
+  .hero-copy{ max-width:560px; color:var(--cream); }
+  .hero-copy .eyebrow{ color:var(--honey); }
+  .hero-copy .eyebrow::before{ background:var(--honey); }
+  .hero-copy p.lead{ color:rgba(246,241,231,0.85); }
+  .hero-copy .stars{ color:rgba(246,241,231,0.8); }
+  .hero-copy .price-tag{ color:rgba(246,241,231,0.8); }
+  .hero-copy .price-tag strong{ color:var(--cream); }
+  .eyebrow{ font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--sage-dark); font-weight:600; margin-bottom:22px; display:flex; align-items:center; gap:10px;}
+  .eyebrow::before{ content:''; width:24px; height:1px; background:var(--sage-dark); }
+  .hero h1{ font-size:clamp(36px, 5vw, 58px); line-height:1.05; margin-bottom:24px; text-shadow:0 4px 30px rgba(0,0,0,0.5); }
+  .hero h1 em{ font-style:italic; color:var(--rust); text-shadow:0 4px 30px rgba(0,0,0,0.5); }
+  .hero p.lead{ font-size:17px; max-width:420px; margin-bottom:34px; }
+  .btn-row{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .btn-primary{ background:var(--ink); color:var(--cream); padding:16px 30px; border-radius:999px; font-size:15px; font-weight:500; display:inline-block; transition:transform .25s ease, background .25s ease; }
+  .btn-primary:hover{ transform:translateY(-2px); background:var(--honey); }
+  .price-tag{ font-size:14px; color:var(--ink-soft); }
+  .price-tag strong{ color:var(--ink); font-size:17px; }
+  .stars{ margin-top:28px; font-size:13px; color:var(--ink-soft); display:flex; align-items:center; gap:8px; }
+  .stars .stars-icons{ color:var(--honey); letter-spacing:2px; }
+
+  @media (max-width:900px){ .hero .wrap{ grid-template-columns:1fr; } }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head{ max-width:560px; margin-bottom:56px; }
+  .section-head .eyebrow{ margin-bottom:16px; }
+  .section-head h2{ font-size:clamp(28px,3.4vw,40px); }
+  .section-head p{ color:var(--ink-soft); margin-top:16px; font-size:16px; }
+  .section-pad{ padding:110px 0; }
+
+  /* ---------- POURQUOI ---------- */
+  .benefits{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+  .benefit{ background:var(--paper); padding:44px 34px; }
+  .benefit .num{ font-family:'Fraunces', serif; font-style:italic; font-size:15px; color:var(--rust); margin-bottom:20px; display:block;}
+  .benefit h3{ font-size:21px; margin-bottom:12px; }
+  .benefit p{ color:var(--ink-soft); font-size:15px; }
+  @media (max-width:780px){ .benefits{ grid-template-columns:1fr; } }
+
+  /* ---------- PRODUIT ---------- */
+  .product-section{ background:var(--ink); color:var(--cream); }
+  .product-section .eyebrow{ color:var(--honey); }
+  .product-section .eyebrow::before{ background:var(--honey); }
+  .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+  .product-gallery{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .product-gallery img{ border-radius:4px; aspect-ratio:1/1; object-fit:cover; }
+  .product-gallery .g-main{ grid-column:1/3; aspect-ratio:16/11; }
+  .product-info h3{ font-size:30px; margin-bottom:8px; }
+  .product-info .stars-icons{ color:var(--honey); }
+  .product-price{ font-size:38px; font-family:'Fraunces', serif; margin:24px 0 6px; }
+  .product-price .old{ font-size:18px; color:rgba(246,241,231,0.5); text-decoration:line-through; margin-left:10px; font-family:'Inter', sans-serif; }
+  .product-note{ font-size:13px; color:rgba(246,241,231,0.6); margin-bottom:28px; }
+  .feature-list{ list-style:none; margin-bottom:32px; }
+  .feature-list li{ padding:12px 0; border-top:1px solid rgba(246,241,231,0.14); font-size:15px; display:flex; gap:12px; align-items:flex-start;}
+  .feature-list li:last-child{ border-bottom:1px solid rgba(246,241,231,0.14); }
+  .feature-list li::before{ content:'—'; color:var(--honey); flex-shrink:0; }
+  .btn-light{ background:var(--cream); color:var(--ink); padding:16px 30px; border-radius:999px; font-size:15px; font-weight:500; display:inline-block; transition:transform .25s ease; }
+  .btn-light:hover{ transform:translateY(-2px); }
+  @media (max-width:900px){ .product-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- COMMENT CA MARCHE ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+  .step{ text-align:left; }
+  .step-num{ font-family:'Fraunces', serif; font-style:italic; font-size:44px; color:var(--sage); line-height:1; margin-bottom:18px; }
+  .step h3{ font-size:19px; margin-bottom:10px; }
+  .step p{ color:var(--ink-soft); font-size:15px; }
+  @media (max-width:780px){ .steps{ grid-template-columns:1fr; } }
+
+  /* ---------- AVIS ---------- */
+  .reviews{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .review-card{ background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:32px; }
+  .review-card .stars-icons{ color:var(--honey); font-size:14px; display:block; margin-bottom:18px; }
+  .review-card p{ font-size:15px; color:var(--ink); margin-bottom:22px; }
+  .review-author{ display:flex; align-items:center; gap:12px; }
+  .review-author img{ width:38px; height:38px; border-radius:50%; object-fit:cover; }
+  .review-author span{ font-size:13px; color:var(--ink-soft); }
+  @media (max-width:900px){ .reviews{ grid-template-columns:1fr; } }
+
+  /* ---------- COMPLEMENTAIRE ---------- */
+  .comp-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .comp-card{ background:var(--paper); border-radius:6px; overflow:hidden; border:1px solid var(--line); transition:transform .3s ease; }
+  .comp-card:hover{ transform:translateY(-4px); }
+  .comp-card img{ aspect-ratio:1/1; object-fit:cover; }
+  .comp-body{ padding:22px 24px 26px; }
+  .comp-body h3{ font-size:18px; margin-bottom:6px; }
+  .comp-body .comp-price{ font-size:15px; color:var(--ink-soft); margin-top:10px; }
+  @media (max-width:900px){ .comp-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- FAQ ---------- */
+  .faq{ max-width:760px; }
+  .faq-item{ border-top:1px solid var(--line); }
+  .faq-item:last-child{ border-bottom:1px solid var(--line); }
+  .faq-q{ padding:26px 0; display:flex; align-items:center; justify-content:space-between; cursor:pointer; font-size:16px; font-weight:500; }
+  .faq-q .plus{ font-family:'Fraunces', serif; font-size:22px; color:var(--sage-dark); transition:transform .3s ease; flex-shrink:0; margin-left:20px;}
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .faq-a p{ padding-bottom:26px; color:var(--ink-soft); font-size:15px; max-width:600px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--ink); color:var(--cream); padding:80px 0 30px; }
+  .footer-top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:70px; }
+  .footer-top h4{ font-size:13px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.6; margin-bottom:18px; }
+  .footer-top ul{ list-style:none; }
+  .footer-top li{ margin-bottom:10px; font-size:14px; }
+  .footer-top li a:hover{ text-decoration:underline; }
+  .footer-brand .logo{ color:var(--cream); }
+  .footer-brand p{ margin-top:16px; font-size:14px; opacity:0.75; max-width:260px; }
+  .footer-bottom{ border-top:1px solid rgba(246,241,231,0.18); padding-top:24px; display:flex; justify-content:space-between; font-size:13px; opacity:0.6; flex-wrap:wrap; gap:10px;}
+  @media (max-width:780px){ .footer-top{ grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<div id="cursorTrail"></div>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="logo">Velora<span>.</span></div>
+    <div class="nav-links nav-mobile-hide">
+      <a href="#produit">Le hamac</a>
+      <a href="#comment">Installation</a>
+      <a href="#avis">Avis</a>
+      <a href="#complement">Boutique</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#produit" class="nav-cta">Offrir son hamac</a>
+  </div>
+  <div id="progressBar"></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <video id="heroVideo" autoplay loop muted playsinline poster="assets/images/frame1.png"><source src="assets/images/video-chat-hamac.mp4" type="video/mp4"></video>
+    <div class="vignette"></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Confort premium pour félins</div>
+      <h1>Le coin <br>préféré <em>de votre chat</em>,<br> en 30 secondes.</h1>
+      <p class="lead">Un hamac de fenêtre pensé pour transformer n'importe quelle vitre en poste d'observation, de sieste et de soleil.</p>
+      <div class="btn-row">
+        <a href="#produit" class="btn-primary">Offrir son hamac 🐾</a>
+        <div class="price-tag">à partir de <strong>39,90€</strong></div>
+      </div>
+      <div class="stars"><span class="stars-icons">★★★★★</span> <span data-count-to="4.9" data-decimals="1">0</span>/5 — déjà adopté par <span data-count-to="214">0</span> chats</div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section-pad" id="pourquoi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Comportement naturel</div>
+      <h2>Pourquoi votre chat va l'adorer</h2>
+      <p>Un chat cherche naturellement la hauteur, la lumière et un poste d'observation. Le hamac Velora réunit les trois.</p>
+    </div>
+    <div class="benefits reveal">
+      <div class="benefit">
+        <span class="num">Observer</span>
+        <h3>Son territoire, sans effort</h3>
+        <p>Installé en hauteur contre la vitre, il surveille la rue, le jardin, les passants — son occupation favorite.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">Se réchauffer</span>
+        <h3>Au plus près du soleil</h3>
+        <p>La fenêtre est l'endroit le plus chaud de la maison. Le hamac capte cette chaleur toute la journée.</p>
+      </div>
+      <div class="benefit">
+        <span class="num">Se reposer</span>
+        <h3>Un cocon rien qu'à lui</h3>
+        <p>Suspendu, moelleux, à l'écart du sol — l'endroit rêvé pour une vraie sieste sans être dérangé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad product-section" id="produit">
+  <div class="wrap">
+    <div class="product-grid">
+      <div class="product-gallery reveal">
+        <img class="g-main" src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=1000&q=80" alt="Hamac de fenêtre Velora installé">
+        <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=500&q=80" alt="Chat sur le hamac, vue rapprochée">
+        <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=500&q=80" alt="Détail du tissu et des ventouses">
+      </div>
+      <div class="product-info reveal">
+        <div class="eyebrow">Produit phare</div>
+        <h3 class="serif">Hamac fenêtre Velora</h3>
+        <span class="stars-icons">★★★★★ <span style="color:rgba(246,241,231,0.6); font-family:'Inter',sans-serif; font-size:13px;">4.9/5 — 214 avis</span></span>
+        <div class="product-price">39,90€ <span class="old">49,90€</span></div>
+        <div class="product-note">Livraison offerte · Garantie satisfait ou remboursé 30 jours</div>
+        <ul class="feature-list">
+          <li>Ventouses renforcées, tenue jusqu'à 15 kg</li>
+          <li>Tissu déhoussable et lavable en machine</li>
+          <li>Installation sans perçage en 30 secondes</li>
+          <li>Structure acier, résistante aux griffures</li>
+        </ul>
+        <a href="#" class="btn-light">Ajouter au panier</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="comment">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Installation</div>
+      <h2>Comment ça marche</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Nettoyer la vitre</h3>
+        <p>Une surface propre et sèche pour une adhérence parfaite des ventouses.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Fixer le hamac</h3>
+        <p>Positionnez, appuyez, verrouillez les leviers. Aucun outil nécessaire.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Laisser faire la curiosité</h3>
+        <p>La plupart des chats s'installent en quelques minutes, attirés par la hauteur et la lumière.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="avis" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Ils ont testé</div>
+      <h2>Avis clients</h2>
+    </div>
+    <div class="reviews reveal">
+      <div class="review-card">
+        <span class="stars-icons">★★★★★</span>
+        <p>"Installé en 2 minutes, mon chat ne quitte plus la fenêtre. Le tissu a l'air vraiment solide."</p>
+        <div class="review-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="">
+          <span>Camille, Strasbourg</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <span class="stars-icons">★★★★★</span>
+        <p>"On hésitait avec un modèle Amazon à 15€, mais la qualité n'a rien à voir. Ça se sent au toucher."</p>
+        <div class="review-author">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="">
+          <span>Julien, Lyon</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <span class="stars-icons">★★★★★</span>
+        <p>"Mes deux chats se battent pour la place. J'en recommande un deuxième dans le panier."</p>
+        <div class="review-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="">
+          <span>Sarah, Bordeaux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="complement">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Compléter son espace</div>
+      <h2>La collection Velora</h2>
+      <p>Trois objets pensés pour prolonger le confort du hamac, sans surcharger votre panier.</p>
+    </div>
+    <div class="comp-grid reveal">
+      <div class="comp-card">
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=500&q=80" alt="Coussin premium pour chat">
+        <div class="comp-body">
+          <h3>Coussin premium</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Mousse à mémoire de forme, housse lavable.</p>
+          <div class="comp-price">14,90€</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&w=500&q=80" alt="Jouet intelligent pour chat">
+        <div class="comp-body">
+          <h3>Jouet intelligent</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Stimulation et jeu en autonomie.</p>
+          <div class="comp-price">17,90€</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <img src="https://images.unsplash.com/photo-1526336179256-1347bdb255ee?auto=format&fit=crop&w=500&q=80" alt="Brosse pour chat">
+        <div class="comp-body">
+          <h3>Brosse anti-poils</h3>
+          <p style="font-size:14px; color:var(--ink-soft);">Douce, efficace, pensée pour les séances calmes.</p>
+          <div class="comp-price">12,90€</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="faq" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Questions fréquentes</div>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item open">
+        <div class="faq-q">Le hamac tient-il sur toutes les fenêtres ? <span class="plus">+</span></div>
+        <div class="faq-a"><p>Il fonctionne sur toute vitre lisse et propre. Une notice détaille les cas particuliers (double vitrage texturé, fenêtre PVC ancienne, etc.).</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quel poids maximum supporte-t-il ? <span class="plus">+</span></div>
+        <div class="faq-a"><p>Les ventouses renforcées supportent jusqu'à 15 kg, adapté à la quasi-totalité des chats adultes.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Puis-je le retourner s'il ne convient pas ? <span class="plus">+</span></div>
+        <div class="faq-a"><p>Oui, 30 jours pour changer d'avis, remboursement intégral sans justification.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Combien de temps pour la livraison ? <span class="plus">+</span></div>
+        <div class="faq-a"><p>Comptez 3 à 5 jours ouvrés en France métropolitaine, livraison offerte dès 30€ d'achat.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Velora<span>.</span></div>
+        <p>Des objets pensés pour le confort naturel de votre chat.</p>
+      </div>
+      <div>
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="#produit">Hamac fenêtre</a></li>
+          <li><a href="#complement">Collection</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="#">Notre histoire</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Aide</h4>
+        <ul>
+          <li><a href="#">Livraison</a></li>
+          <li><a href="#">Politique de retour</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Velora. Tous droits réservés.</div>
+      <div>Maquette de démonstration — images Unsplash à remplacer</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Lenis smooth scroll
+  const lenis = new Lenis({ duration:1.2, easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)) });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold:0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  const progressBar = document.getElementById('progressBar');
+  lenis.on('scroll', ({ scroll }) => {
+    nav.classList.toggle('scrolled', scroll > 20);
+    const p = Math.min(scroll / (document.body.scrollHeight - window.innerHeight), 1);
+    progressBar.style.width = (p * 100) + '%';
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const answer = item.querySelector('.faq-a');
+    if(item.classList.contains('open')){ answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if(!isOpen){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    });
+  });
+
+  // split text reveal (h1, h2)
+  function splitText(el) {
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map((w, i) => `<span class="split-word" style="transition-delay:${i * 0.04}s">${w}</span>`).join(' ');
+  }
+  document.querySelectorAll('h1, h2').forEach(el => {
+    splitText(el);
+    const obs = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      obs.unobserve(el);
+      el.querySelectorAll('.split-word').forEach((w, i) => {
+        setTimeout(() => w.classList.add('is-visible'), i * 40);
+      });
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  });
+
+  // compteurs animés
+  document.querySelectorAll('[data-count-to]').forEach(el => {
+    const target = parseFloat(el.dataset.countTo);
+    const decimals = parseInt(el.dataset.decimals) || 0;
+    const obs = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      obs.unobserve(el);
+      const dur = 1200;
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min((now - start) / dur, 1);
+        const val = target * t;
+        el.textContent = val.toFixed(decimals);
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = target.toFixed(decimals);
+      }
+      requestAnimationFrame(tick);
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  // parallax hero text
+  const heroCopyEl = document.querySelector('.hero-copy');
+  lenis.on('scroll', ({ scroll }) => {
+    heroCopyEl.style.transform = `translateY(${scroll * 0.15}px)`;
+  });
+
+  // cursor trailing
+  const trail = document.getElementById('cursorTrail');
+  let trailX = 0, trailY = 0, mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; trail.style.opacity = '1'; });
+  document.addEventListener('mouseleave', () => { trail.style.opacity = '0'; });
+  function animTrail() {
+    trailX += (mouseX - trailX) * 0.12;
+    trailY += (mouseY - trailY) * 0.12;
+    trail.style.transform = `translate(${trailX - 6}px, ${trailY - 6}px)`;
+    requestAnimationFrame(animTrail);
+  }
+  animTrail();
+
+  // magnetic buttons
+  document.querySelectorAll('.btn-primary, .btn-light, .nav-cta').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.12}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+  // ancres smooth via lenis
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      e.preventDefault();
+      lenis.scrollTo(id, { offset: -80 });
+    });
+  });
+</script>
+
+</body>
+</html>
