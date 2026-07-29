@@ -50,7 +50,7 @@ const produits = {
       'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80'
     ],
     stripePriceId: null,
-    related: ['hamac', 'brosse']
+    related: ['hamac', 'panier']
   },
   jeu: {
     id: 'jeu',
@@ -76,30 +76,30 @@ const produits = {
       'https://images.unsplash.com/photo-1571566882372-1598d8abd90c?auto=format&fit=crop&w=800&q=80'
     ],
     stripePriceId: null,
-    related: ['hamac', 'brosse']
+    related: ['hamac', 'panier']
   },
-  brosse: {
-    id: 'brosse',
-    name: 'Brosse anti-poils Velora',
-    slug: 'brosse-anti-poils-velora',
-    price: 12.90,
+  panier: {
+    id: 'panier',
+    name: 'Panier rotin Velora',
+    slug: 'panier-rotin-velora',
+    price: 35.90,
     oldPrice: null,
     rating: 4.6,
     reviews: 112,
     badge: null,
-    shortDesc: 'Douce, efficace, pensée pour les séances calmes.',
-    longDesc: 'Une brosse douce qui retire les poils morts sans agresser la peau de votre chat. Son design ergonomique permet une prise en main confortable pour des séances de brossage prolongées.',
+    shortDesc: 'Un lit rond en rotin tressé à la main, pour des nuits paisibles.',
+    longDesc: 'Tressé à la main par des artisans, ce panier en rotin naturel offre à votre chat un cocon douillet et élégant. Son coussin amovible se lave en machine, et sa structure robuste s\'intègre parfaitement à tous les intérieurs.',
     features: [
-      'Poils souples anti-irritation',
-      'Design ergonomique',
-      'Lame amovible pour nettoyage facile',
-      'Convient à tous les types de pelage'
+      'Rotin tressé à la main, robuste et durable',
+      'Coussin amovible et lavable en machine',
+      'Design naturel, adapté à tous les intérieurs',
+      'Structure stable et sécurisée'
     ],
     images: [
-      'https://images.unsplash.com/photo-1526336179256-1347bdb255ee?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1543852786-1cf6534b7f7f?auto=format&fit=crop&w=800&q=80'
+      'assets/images/panier-chat.avif',
+      'https://images.unsplash.com/photo-1543852786-1cf6534b7f7f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=80'
     ],
     stripePriceId: null,
     related: ['hamac', 'coussin']
