@@ -74,6 +74,18 @@ lenis.on('scroll', ({ scroll }) => {
   heroCopyEl.style.transform = `translateY(${scroll * 0.15}px)`;
 });
 
+// iOS autoplay fallback
+const heroVideoEl = document.getElementById('heroVideo');
+if (heroVideoEl) {
+  function startVideo() {
+    heroVideoEl.play().catch(() => {});
+    document.removeEventListener('touchstart', startVideo);
+    document.removeEventListener('click', startVideo);
+  }
+  document.addEventListener('touchstart', startVideo);
+  document.addEventListener('click', startVideo);
+}
+
 // cursor trailing (desktop only)
 if (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) {
   const trail = document.getElementById('cursorTrail');
