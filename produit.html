@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora — Produit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div id="cursorTrail"></div>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="logo">Velora<span>.</span></div>
+    <div class="nav-links nav-mobile-hide">
+      <a href="index.html#produit">Le hamac</a>
+      <a href="index.html#comment">Installation</a>
+      <a href="index.html#avis">Avis</a>
+      <a href="index.html#complement">Boutique</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="panier.html" class="nav-cart" aria-label="Panier">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cartBadge" class="cart-badge">0</span>
+      </a>
+      <a href="index.html#produit" class="nav-cta">Offrir son hamac</a>
+    </div>
+  </div>
+  <div id="progressBar"></div>
+</nav>
+
+<section class="section-pad" id="productDetail">
+  <div class="wrap" id="productContainer">
+    <div class="breadcrumb"><a href="index.html">Accueil</a> / <span id="breadcrumbName">Produit</span></div>
+    <div class="product-detail-grid">
+      <div class="product-gallery-wrap">
+        <div class="gallery-main">
+          <img id="galleryMain" src="" alt="">
+          <span class="gallery-badge" id="galleryBadge"></span>
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+      </div>
+      <div class="product-detail-info">
+        <div class="eyebrow" id="detailEyebrow">Produit phare</div>
+        <h1 class="serif" id="detailName">—</h1>
+        <div class="detail-rating" id="detailRating"></div>
+        <div class="detail-price" id="detailPrice"></div>
+        <p class="detail-desc" id="detailDesc"></p>
+        <ul class="feature-list" id="detailFeatures"></ul>
+        <div class="detail-actions">
+          <div class="qty-selector">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <span class="qty-value" id="qtyValue">1</span>
+            <button class="qty-btn" id="qtyPlus">+</button>
+          </div>
+          <button class="btn-primary" id="addToCartBtn">Ajouter au panier</button>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn">Acheter maintenant</button>
+        <p class="detail-note">Livraison offerte · Satisfait ou remboursé 30 jours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="relatedSection" style="display:none;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Compléter</div>
+      <h2>Vous aimerez aussi</h2>
+    </div>
+    <div class="comp-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Velora<span>.</span></div>
+        <p>Des objets pensés pour le confort naturel de votre chat.</p>
+      </div>
+      <div>
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="produit.html?id=hamac">Hamac fenêtre</a></li>
+          <li><a href="produit.html?id=coussin">Coussin premium</a></li>
+          <li><a href="produit.html?id=jeu">Jouet intelligent</a></li>
+          <li><a href="produit.html?id=brosse">Brosse anti-poils</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="index.html">Notre histoire</a></li>
+          <li><a href="index.html#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Aide</h4>
+        <ul>
+          <li><a href="index.html">Livraison</a></li>
+          <li><a href="index.html">Politique de retour</a></li>
+          <li><a href="index.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Velora. Tous droits réservés.</div>
+      <div>Maquette de démonstration — images Unsplash à remplacer</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/produits.js"></script>
+<script src="assets/js/panier.js"></script>
+<script>
+  let currentProduitId = null;
+  let currentQty = 1;
+
+  function initProductPage() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || 'hamac';
+    const p = getProduit(id);
+    if (!p) { document.getElementById('productContainer').innerHTML = '<p style="text-align:center;padding:80px 0;">Produit introuvable.</p>'; return; }
+
+    currentProduitId = p.id;
+    currentQty = 1;
+    document.getElementById('qtyValue').textContent = '1';
+    document.title = 'Velora — ' + p.name;
+    document.getElementById('breadcrumbName').textContent = p.name;
+
+    document.getElementById('detailName').textContent = p.name;
+    document.getElementById('detailDesc').textContent = p.longDesc;
+
+    const eyebrow = document.getElementById('detailEyebrow');
+    if (p.badge) { eyebrow.textContent = p.badge; } else { eyebrow.textContent = 'Produit phare'; }
+
+    // Rating
+    document.getElementById('detailRating').innerHTML =
+      '<span class="stars-icons">' + '★'.repeat(5) + '</span> ' +
+      '<span class="rating-text">' + p.rating + '/5 — ' + p.reviews + ' avis</span>';
+
+    // Price
+    const priceEl = document.getElementById('detailPrice');
+    if (p.oldPrice) {
+      priceEl.innerHTML = '<span class="current">' + p.price.toFixed(2).replace('.', ',') + '€</span> ' +
+        '<span class="old">' + p.oldPrice.toFixed(2).replace('.', ',') + '€</span>';
+    } else {
+      priceEl.innerHTML = '<span class="current">' + p.price.toFixed(2).replace('.', ',') + '€</span>';
+    }
+
+    // Features
+    const featuresEl = document.getElementById('detailFeatures');
+    featuresEl.innerHTML = p.features.map(f => '<li>' + f + '</li>').join('');
+
+    // Gallery
+    const mainImg = document.getElementById('galleryMain');
+    mainImg.src = p.images[0];
+    mainImg.alt = p.name;
+
+    const badge = document.getElementById('galleryBadge');
+    badge.textContent = p.badge || '';
+    badge.style.display = p.badge ? 'block' : 'none';
+
+    const thumbsEl = document.getElementById('galleryThumbs');
+    thumbsEl.innerHTML = p.images.map((img, i) =>
+      '<div class="thumb' + (i === 0 ? ' active' : '') + '" data-index="' + i + '">' +
+        '<img src="' + img + '" alt="' + p.name + '">' +
+      '</div>'
+    ).join('');
+
+    thumbsEl.querySelectorAll('.thumb').forEach(el => {
+      el.addEventListener('click', () => {
+        thumbsEl.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+        mainImg.src = p.images[parseInt(el.dataset.index)];
+      });
+    });
+
+    // Related
+    const relatedSection = document.getElementById('relatedSection');
+    if (p.related && p.related.length) {
+      relatedSection.style.display = '';
+      const grid = document.getElementById('relatedGrid');
+      grid.innerHTML = p.related.map(id => {
+        const rp = produits[id];
+        if (!rp) return '';
+        return '<a href="produit.html?id=' + rp.id + '" class="comp-card">' +
+          '<img src="' + rp.images[0] + '" alt="' + rp.name + '">' +
+          '<div class="comp-body">' +
+            '<h3>' + rp.name + '</h3>' +
+            '<p class="comp-desc">' + rp.shortDesc + '</p>' +
+            '<div class="comp-price">' + rp.price.toFixed(2).replace('.', ',') + '€</div>' +
+          '</div></a>';
+      }).join('');
+    }
+
+    // Lenis scroll reveal for related
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  }
+
+  // Qty
+  document.getElementById('qtyMinus').addEventListener('click', () => {
+    if (currentQty > 1) { currentQty--; document.getElementById('qtyValue').textContent = currentQty; }
+  });
+  document.getElementById('qtyPlus').addEventListener('click', () => {
+    if (currentQty < 99) { currentQty++; document.getElementById('qtyValue').textContent = currentQty; }
+  });
+
+  // Add to cart
+  document.getElementById('addToCartBtn').addEventListener('click', () => {
+    if (!currentProduitId) return;
+    addToCart(currentProduitId, currentQty);
+    alert('Ajouté au panier !');
+  });
+
+  // Buy now
+  document.getElementById('checkoutBtn').addEventListener('click', () => {
+    if (!currentProduitId) return;
+    addToCart(currentProduitId, currentQty);
+    window.location.href = 'panier.html';
+  });
+
+  initProductPage();
+
+  // Lenis
+  const lenis = new Lenis({ duration:1.2, easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)) });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+</script>
+</body>
+</html>

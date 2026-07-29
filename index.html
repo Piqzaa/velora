@@ -22,14 +22,20 @@
       <a href="#complement">Boutique</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="#produit" class="nav-cta">Offrir son hamac</a>
+    <div class="nav-actions">
+      <a href="panier.html" class="nav-cart" aria-label="Panier">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cartBadge" class="cart-badge">0</span>
+      </a>
+      <a href="produit.html?id=hamac" class="nav-cta">Offrir son hamac</a>
+    </div>
   </div>
   <div id="progressBar"></div>
 </nav>
 
 <section class="hero">
   <div class="hero-bg">
-    <video id="heroVideo" autoplay loop muted playsinline poster="assets/images/frame1.png"><source src="assets/images/video-chat-hamac.mp4" type="video/mp4"></video>
+    <video id="heroVideo" autoplay loop muted playsinline preload="auto" poster="assets/images/frame1.png"><source src="assets/images/video-chat-hamac.mp4" type="video/mp4"></video>
     <div class="vignette"></div>
   </div>
   <div class="wrap">
@@ -38,7 +44,7 @@
       <h1>Le coin <br>préféré <em>de votre chat</em>,<br> en 30 secondes.</h1>
       <p class="lead">Un hamac de fenêtre pensé pour transformer n'importe quelle vitre en poste d'observation, de sieste et de soleil.</p>
       <div class="btn-row">
-        <a href="#produit" class="btn-primary">Offrir son hamac 🐾</a>
+        <a href="produit.html?id=hamac" class="btn-primary">Offrir son hamac 🐾</a>
         <div class="price-tag">à partir de <strong>39,90€</strong></div>
       </div>
       <div class="stars"><span class="stars-icons">★★★★★</span> <span data-count-to="4.9" data-decimals="1">0</span>/5 — déjà adopté par <span data-count-to="214">0</span> chats</div>
@@ -83,7 +89,7 @@
       </div>
       <div class="product-info reveal">
         <div class="eyebrow">Produit phare</div>
-        <h3 class="serif">Hamac fenêtre Velora</h3>
+        <h3 class="serif"><a href="produit.html?id=hamac" style="color:inherit;">Hamac fenêtre Velora</a></h3>
         <span class="stars-icons">★★★★★ <span class="rating-meta">4.9/5 — 214 avis</span></span>
         <div class="product-price">39,90€ <span class="old">49,90€</span></div>
         <div class="product-note">Livraison offerte · Garantie satisfait ou remboursé 30 jours</div>
@@ -93,7 +99,7 @@
           <li>Installation sans perçage en 30 secondes</li>
           <li>Structure acier, résistante aux griffures</li>
         </ul>
-        <a href="#" class="btn-light">Ajouter au panier</a>
+        <a href="produit.html?id=hamac" class="btn-light">Ajouter au panier</a>
       </div>
     </div>
   </div>
@@ -168,30 +174,29 @@
       <p>Trois objets pensés pour prolonger le confort du hamac, sans surcharger votre panier.</p>
     </div>
     <div class="comp-grid reveal">
-      <div class="comp-card">
+      <a href="produit.html?id=coussin" class="comp-card">
         <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=500&q=80" alt="Coussin premium pour chat">
         <div class="comp-body">
           <h3>Coussin premium</h3>
           <p class="comp-desc">Mousse à mémoire de forme, housse lavable.</p>
           <div class="comp-price">14,90€</div>
         </div>
-      </div>
-      <div class="comp-card">
+      </a>
+      <a href="produit.html?id=jeu" class="comp-card">
         <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&w=500&q=80" alt="Jouet intelligent pour chat">
         <div class="comp-body">
           <h3>Jouet intelligent</h3>
           <p class="comp-desc">Stimulation et jeu en autonomie.</p>
           <div class="comp-price">17,90€</div>
         </div>
-      </div>
-      <div class="comp-card">
+      </a>
+      <a href="produit.html?id=brosse" class="comp-card">
         <img src="https://images.unsplash.com/photo-1526336179256-1347bdb255ee?auto=format&fit=crop&w=500&q=80" alt="Brosse pour chat">
         <div class="comp-body">
           <h3>Brosse anti-poils</h3>
           <p class="comp-desc">Douce, efficace, pensée pour les séances calmes.</p>
           <div class="comp-price">12,90€</div>
-        </div>
-      </div>
+</a>
     </div>
   </div>
 </section>
@@ -233,8 +238,10 @@
       <div>
         <h4>Boutique</h4>
         <ul>
-          <li><a href="#produit">Hamac fenêtre</a></li>
-          <li><a href="#complement">Collection</a></li>
+          <li><a href="produit.html?id=hamac">Hamac fenêtre</a></li>
+          <li><a href="produit.html?id=coussin">Coussin premium</a></li>
+          <li><a href="produit.html?id=jeu">Jouet intelligent</a></li>
+          <li><a href="produit.html?id=brosse">Brosse anti-poils</a></li>
         </ul>
       </div>
       <div>
@@ -260,6 +267,8 @@
   </div>
 </footer>
 
+<script src="assets/js/produits.js"></script>
+<script src="assets/js/panier.js"></script>
 <script src="assets/js/script.js"></script>
 
 </body>
