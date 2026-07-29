@@ -67,10 +67,10 @@
   .hero-bg img, .hero-bg video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   #heroPoster{ z-index:2; }
   #heroVideo{ z-index:1; }
-  .hero-bg::after{ content:''; position:absolute; inset:0; background:linear-gradient(100deg, rgba(38,36,32,0.78) 0%, rgba(38,36,32,0.60) 30%, rgba(38,36,32,0.35) 60%, rgba(38,36,32,0.60) 100%); }
-  .vignette{ position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 50%, rgba(38,36,32,0.4) 100%); pointer-events:none; z-index:3; }
+  .hero-bg::after{ content:''; position:absolute; inset:0; background:linear-gradient(100deg, rgba(38,36,32,0.88) 0%, rgba(38,36,32,0.75) 30%, rgba(38,36,32,0.55) 60%, rgba(38,36,32,0.75) 100%); }
+  .vignette{ position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 40%, rgba(38,36,32,0.55) 100%); pointer-events:none; z-index:3; }
   .hero .wrap{ position:relative; z-index:1; display:block; max-width:1180px; }
-  .hero-copy{ max-width:560px; color:var(--cream); }
+  .hero-copy{ max-width:560px; color:var(--cream); will-change:transform; }
   .hero-copy .eyebrow{ color:var(--honey); }
   .hero-copy .eyebrow::before{ background:var(--honey); }
   .hero-copy p.lead{ color:rgba(246,241,231,0.85); }

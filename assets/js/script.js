@@ -68,11 +68,15 @@ document.querySelectorAll('[data-count-to]').forEach(el => {
   obs.observe(el);
 });
 
-// parallax hero text
+// parallax hero text (optimisé rAF)
 const heroCopyEl = document.querySelector('.hero-copy');
-lenis.on('scroll', ({ scroll }) => {
-  heroCopyEl.style.transform = `translateY(${scroll * 0.15}px)`;
-});
+let heroScrollY = 0;
+lenis.on('scroll', ({ scroll }) => { heroScrollY = scroll; });
+function updateParallax() {
+  heroCopyEl.style.transform = `translateY(${heroScrollY * 0.15}px)`;
+  requestAnimationFrame(updateParallax);
+}
+updateParallax();
 
 // hero video autoplay
 const heroVideo = document.getElementById('heroVideo');
