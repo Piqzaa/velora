@@ -64,9 +64,11 @@
   /* ---------- HERO ---------- */
   .hero{ min-height:100vh; display:flex; align-items:center; padding-top:100px; padding-bottom:60px; overflow:hidden; position:relative; }
   .hero-bg{ position:absolute; inset:0; z-index:0; }
-  .hero-bg img, .hero-bg video{ width:100%; height:100%; object-fit:cover; }
+  .hero-bg img, .hero-bg video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  #heroPoster{ z-index:2; }
+  #heroVideo{ z-index:1; }
   .hero-bg::after{ content:''; position:absolute; inset:0; background:linear-gradient(100deg, rgba(38,36,32,0.78) 0%, rgba(38,36,32,0.60) 30%, rgba(38,36,32,0.35) 60%, rgba(38,36,32,0.60) 100%); }
-  .hero-bg .vignette{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 50%, rgba(38,36,32,0.4) 100%); pointer-events:none; z-index:1; }
+  .vignette{ position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 50%, rgba(38,36,32,0.4) 100%); pointer-events:none; z-index:3; }
   .hero .wrap{ position:relative; z-index:1; display:block; max-width:1180px; }
   .hero-copy{ max-width:560px; color:var(--cream); }
   .hero-copy .eyebrow{ color:var(--honey); }

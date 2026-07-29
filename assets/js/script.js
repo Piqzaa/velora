@@ -74,16 +74,11 @@ lenis.on('scroll', ({ scroll }) => {
   heroCopyEl.style.transform = `translateY(${scroll * 0.15}px)`;
 });
 
-// iOS autoplay fallback
-const heroVideoEl = document.getElementById('heroVideo');
-if (heroVideoEl) {
-  function startVideo() {
-    heroVideoEl.play().catch(() => {});
-    document.removeEventListener('touchstart', startVideo);
-    document.removeEventListener('click', startVideo);
-  }
-  document.addEventListener('touchstart', startVideo);
-  document.addEventListener('click', startVideo);
+// hero video autoplay
+const heroVideo = document.getElementById('heroVideo');
+const heroPoster = document.getElementById('heroPoster');
+if (heroVideo && heroPoster) {
+  heroVideo.play().then(() => { heroPoster.remove(); }).catch(() => {});
 }
 
 // cursor trailing (desktop only)
