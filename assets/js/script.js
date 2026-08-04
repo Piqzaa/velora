@@ -30,10 +30,21 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// split text reveal (h1, h2)
+// split text reveal (h1, h2) — préserve <em> et <br>
 function splitText(el) {
-  const words = el.textContent.trim().split(/\s+/);
-  el.innerHTML = words.map((w, i) => `<span class="split-word" style="transition-delay:${i * 0.04}s">${w}</span>`).join(' ');
+  const parts = el.innerHTML.split(/(<[^>]+>)/);
+  const out = [];
+  let delay = 0;
+  parts.forEach(part => {
+    if (part.startsWith('<')) { out.push(part); return; }
+    part.split(/\s+/).forEach(w => {
+      if (w === '') return;
+      out.push(`<span class="split-word" style="transition-delay:${delay * 0.04}s">${w}</span>`);
+      out.push(' ');
+      delay++;
+    });
+  });
+  el.innerHTML = out.join('');
 }
 document.querySelectorAll('h1, h2').forEach(el => {
   splitText(el);
@@ -121,4 +132,44 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     e.preventDefault();
     lenis.scrollTo(id, { offset: -80 });
   });
+});
+
+// promo countdown (reset chaque jour à minuit)
+function startCountdown() {
+  const el = document.getElementById('countdown');
+  if (!el) return;
+  function tick() {
+    const now = new Date();
+    const end = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    let diff = Math.max(0, end - now);
+    const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+    const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    el.textContent = h + ':' + m + ':' + s;
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+startCountdown();
+
+// boutons "Ajouter au panier" (délégation globale)
+function flashAddedBtn(btn) {
+  const original = btn.getAttribute('data-label') || btn.textContent;
+  btn.textContent = '✓ Ajouté';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.disabled = false;
+  }, 1500);
+}
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-to-cart');
+  if (!btn) return;
+  e.preventDefault();
+  const id = btn.dataset.id || 'hamac';
+  const p = produits[id];
+  addToCart(id, 1);
+  showCartToast(p ? p.name : '');
+  flashAddedBtn(btn);
 });
