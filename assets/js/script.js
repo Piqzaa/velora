@@ -508,7 +508,8 @@ if (daylineItems.length) {
     return h < 9.5 ? 7 : h < 13.5 ? 12 : h < 17.5 ? 15 : 20;
   }
   function markLive() {
-    const band = hourBand(new Date().getHours());
+    const now = new Date();
+    const band = hourBand(now.getHours());
     daylineItems.forEach(it => {
       const isLive = parseInt(it.dataset.hour, 10) === band;
       it.classList.toggle('live', isLive);
@@ -522,6 +523,13 @@ if (daylineItems.length) {
         }
       }
     });
+    const liveText = document.getElementById('daylineLiveText');
+    if (liveText) {
+      const momentNames = { 7: "du poste d'observation", 12: 'du bain de soleil', 15: 'de la sieste', 20: 'du rituel du soir' };
+      const h = now.getHours();
+      const m = String(now.getMinutes()).padStart(2, '0');
+      liveText.textContent = "il est " + h + "h" + m + ", chez votre chat c'est l'heure " + momentNames[band] + ".";
+    }
   }
   markLive();
   setInterval(markLive, 60000);

@@ -330,6 +330,13 @@
     .dayline-item .dayline-dot{ left:0; right:auto; }
     .dayline-card:hover{ transform:none; }
   }
+  .dayline-live-strip{ display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; max-width:720px; margin:0 auto 34px; padding:10px 20px; border-radius:999px; background:rgba(110,124,91,0.08); border:1px solid rgba(110,124,91,0.22); text-align:center; font-size:14px; color:var(--sage-dark); }
+  .dayline-live-strip p{ margin:0; }
+  .dayline-live-strip strong{ color:var(--ink); font-weight:600; }
+  .dayline-live-pulse{ width:9px; height:9px; border-radius:50%; background:var(--honey); box-shadow:0 0 0 4px rgba(198,158,74,0.22); animation:livePulse 2.2s ease-in-out infinite; flex-shrink:0; }
+  .dayline-visual{ position:relative; max-width:720px; margin:0 auto 60px; border-radius:10px; overflow:hidden; box-shadow:0 18px 44px rgba(0,0,0,0.12); }
+  .dayline-visual img{ width:100%; display:block; }
+  .dayline-visual-caption{ position:absolute; left:16px; bottom:14px; background:rgba(252,249,241,0.92); color:var(--ink); font-size:12px; font-weight:600; letter-spacing:0.03em; padding:7px 14px; border-radius:999px; box-shadow:0 4px 14px rgba(0,0,0,0.14); }
 
   /* =========================================================
      PRODUIT PHARE — spread + urgence + double CTA
