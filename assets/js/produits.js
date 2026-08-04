@@ -23,6 +23,7 @@ const produits = {
       'assets/images/hamac-fenetre2.avif'
     ],
     stripePriceId: null,
+    hasWindow: true,
     related: ['panier', 'griffoir', 'transat']
   },
   panier: {
@@ -47,6 +48,7 @@ const produits = {
       'assets/images/tipi.jpg'
     ],
     stripePriceId: null,
+    hasWindow: false,
     related: ['hamac', 'griffoir', 'transat']
   },
   griffoir: {
@@ -72,6 +74,7 @@ const produits = {
       'assets/images/panier-avec-chat.avif'
     ],
     stripePriceId: null,
+    hasWindow: false,
     related: ['hamac', 'panier', 'transat']
   },
   transat: {
@@ -95,6 +98,7 @@ const produits = {
       'assets/images/hamac-sol.avif'
     ],
     stripePriceId: null,
+    hasWindow: false,
     related: ['hamac', 'panier', 'griffoir']
   }
 };

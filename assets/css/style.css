@@ -120,7 +120,7 @@
   .product-info h3{ font-size:30px; margin-bottom:8px; }
   .product-info .stars-icons{ color:var(--honey); }
   .product-price{ font-size:38px; font-family:'Fraunces', serif; margin:24px 0 6px; }
-  .product-price .old{ font-size:18px; color:rgba(246,241,231,0.5); text-decoration:line-through; margin-left:10px; font-family:'Inter', sans-serif; }
+  .product-price .old{ font-size:18px; color:rgba(246,241,231,0.66); text-decoration:line-through; margin-left:10px; font-family:'Inter', sans-serif; }
   .product-note{ font-size:13px; color:rgba(246,241,231,0.6); margin-bottom:28px; }
   .product-info .feature-list{ list-style:none; margin-bottom:32px; }
   .product-info .feature-list li{ padding:12px 0; border-top:1px solid rgba(246,241,231,0.14); font-size:15px; display:flex; gap:12px; align-items:flex-start;}
@@ -128,7 +128,7 @@
   .product-info .feature-list li::before{ content:'—'; color:var(--honey); flex-shrink:0; }
   .btn-light{ background:var(--cream); color:var(--ink); padding:16px 30px; border-radius:999px; font-size:15px; font-weight:500; display:inline-block; transition:transform .25s ease, background .25s ease, border-color .25s ease; }
   .btn-light:hover{ transform:translateY(-2px); background:var(--honey); border-color:var(--honey); }
-  .rating-meta{ color:rgba(246,241,231,0.6); font-family:'Inter',sans-serif; font-size:13px; }
+  .rating-meta{ color:rgba(246,241,231,0.78); font-family:'Inter',sans-serif; font-size:13px; }
   @media (max-width:900px){ .product-grid{ grid-template-columns:1fr; } }
 
   /* ---------- COMMENT CA MARCHE ---------- */
@@ -344,26 +344,26 @@
   .product-gallery img:nth-child(2){ transform:rotate(-1.4deg); }
   .product-gallery img:nth-child(3){ transform:rotate(1.4deg); }
   .product-gallery .g-main{ transform:none; }
-  .gallery-hint{ display:none; text-align:center; font-size:13px; color:rgba(246,241,231,0.6); margin-top:12px; }
+  .gallery-hint{ display:none; text-align:center; font-size:13px; color:rgba(246,241,231,0.8); margin-top:12px; }
   .gallery-float-card{ position:absolute; bottom:26px; right:-12px; background:var(--cream); color:var(--ink); border-radius:10px; padding:16px 20px; box-shadow:0 16px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; gap:2px; z-index:5; }
   .gallery-float-card .float-stars{ color:var(--honey); letter-spacing:2px; font-size:13px; margin-bottom:4px; }
   .gallery-float-card strong{ font-family:'Fraunces',serif; font-size:26px; line-height:1.1; }
   .gallery-float-card span:last-child{ font-size:12px; color:var(--ink-soft); }
   .promo-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:12px 0 10px; }
   .promo-chip{ background:var(--honey); color:var(--ink); font-size:12px; font-weight:600; padding:6px 14px; border-radius:999px; letter-spacing:0.04em; }
-  .countdown{ display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(246,241,231,0.72); }
+  .countdown{ display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(246,241,231,0.88); }
   .countdown svg{ color:var(--honey); flex-shrink:0; }
   .countdown strong{ color:var(--cream); font-variant-numeric:tabular-nums; letter-spacing:0.04em; }
-  .stock-row{ display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(246,241,231,0.78); flex-wrap:wrap; }
+  .stock-row{ display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(246,241,231,0.9); flex-wrap:wrap; }
   .stock-row strong{ color:var(--cream); }
   .stock-dot{ width:8px; height:8px; border-radius:50%; background:#7FB77E; box-shadow:0 0 0 4px rgba(127,183,126,0.18); flex-shrink:0; }
-  .stock-bar{ flex-basis:100%; height:4px; border-radius:999px; background:rgba(246,241,231,0.14); overflow:hidden; }
+  .stock-bar{ flex-basis:100%; height:4px; border-radius:999px; background:rgba(246,241,231,0.22); overflow:hidden; }
   .stock-bar span{ display:block; height:100%; border-radius:999px; background:linear-gradient(90deg, var(--honey), #E0B96E); }
   .trust-badges{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px; }
-  .trust-badge{ font-size:12px; color:rgba(246,241,231,0.85); border:1px solid rgba(246,241,231,0.22); border-radius:999px; padding:7px 14px; display:inline-flex; align-items:center; gap:8px; }
+  .trust-badge{ font-size:12px; color:rgba(246,241,231,0.94); border:1px solid rgba(246,241,231,0.3); border-radius:999px; padding:7px 14px; display:inline-flex; align-items:center; gap:8px; }
   .trust-badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--honey); }
   .product-cta{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:6px; }
-  .btn-ghost{ border:1px solid rgba(246,241,231,0.4); color:var(--cream); padding:16px 30px; border-radius:999px; font-size:15px; font-weight:500; display:inline-block; transition:border-color .25s ease, background .25s ease, transform .25s ease; }
+  .btn-ghost{ border:1px solid rgba(246,241,231,0.55); color:var(--cream); padding:16px 30px; border-radius:999px; font-size:15px; font-weight:500; display:inline-block; transition:border-color .25s ease, background .25s ease, transform .25s ease; }
   .btn-ghost:hover{ border-color:var(--cream); background:rgba(246,241,231,0.08); transform:translateY(-2px); }
   .btn-primary, .btn-light{ cursor:pointer; border:none; font-family:inherit; }
 
@@ -574,7 +574,7 @@
   .click-paw::before{ content:''; position:absolute; inset:0; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='%23C89B4B'><ellipse cx='12' cy='16' rx='5' ry='4'/><ellipse cx='5' cy='11' rx='1.8' ry='2.4'/><ellipse cx='9' cy='8.5' rx='1.8' ry='2.5'/><ellipse cx='15' cy='8.5' rx='1.8' ry='2.5'/><ellipse cx='19' cy='11' rx='1.8' ry='2.4'/></g></svg>") no-repeat center / contain; }
   @keyframes pawPop{ 0%{ opacity:0; transform:translate(-50%,-50%) rotate(var(--rot)) scale(0.6); } 25%{ opacity:0.45; } 100%{ opacity:0; transform:translate(-50%,-150%) rotate(var(--rot)) scale(1); } }
 
-  .delivery-note{ margin:16px 0 20px; font-size:13px; color:rgba(246,241,231,0.78); display:flex; align-items:center; gap:9px; }
+  .delivery-note{ margin:16px 0 20px; font-size:13px; color:rgba(246,241,231,0.9); display:flex; align-items:center; gap:9px; }
   .delivery-note svg{ flex:none; color:var(--honey); }
   .delivery-note strong{ color:var(--cream); }
 

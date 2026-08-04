@@ -11,7 +11,18 @@ function initProductPage() {
   currentQty = 1;
   document.getElementById('qtyValue').textContent = '1';
   document.title = 'Velora — ' + p.name;
+  const metaTitle = document.querySelector('meta[property="og:title"]');
+  if (metaTitle) metaTitle.setAttribute('content', p.name + ' — Velora');
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', p.longDesc);
+  const metaOgDesc = document.querySelector('meta[property="og:description"]');
+  if (metaOgDesc) metaOgDesc.setAttribute('content', p.shortDesc);
+  const metaOgImg = document.querySelector('meta[property="og:image"]');
+  if (metaOgImg && p.images[0]) metaOgImg.setAttribute('content', window.location.origin + '/' + p.images[0].replace(/^\//, ''));
   document.getElementById('breadcrumbName').textContent = p.name;
+
+  const windowSelectEl = document.getElementById('windowSelect');
+  if (windowSelectEl) windowSelectEl.style.display = p.hasWindow ? '' : 'none';
 
   document.getElementById('detailName').textContent = p.name;
   document.getElementById('detailDesc').textContent = p.longDesc;
@@ -126,6 +137,19 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
   const p = getProduit(currentProduitId);
   showCartToast(p ? p.name : '');
 });
+
+// Nav CTA — ajoute le produit courant et ouvre le panier (reste sur la page)
+const navAddCart = document.getElementById('navAddCart');
+if (navAddCart) {
+  navAddCart.addEventListener('click', () => {
+    if (!currentProduitId) return;
+    addToCart(currentProduitId, currentQty);
+    flyToCart(navAddCart);
+    const p = getProduit(currentProduitId);
+    showCartToast(p ? p.name : '');
+    if (typeof openCartDrawer === 'function') openCartDrawer();
+  });
+}
 
 // Buy now
 document.getElementById('checkoutBtn').addEventListener('click', () => {
