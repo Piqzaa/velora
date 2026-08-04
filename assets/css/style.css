@@ -628,3 +628,40 @@
   .pol-4{ transform:rotate(3.1deg); } .pol-5{ transform:rotate(-3.4deg); } .pol-6{ transform:rotate(1.8deg); }
   @media (max-width:900px){ .board{ grid-template-columns:1fr 1fr; gap:24px; padding:32px 22px; } }
   @media (max-width:520px){ .board{ grid-template-columns:1fr; } }
+
+  /* =========================================================
+     PAGES STATIQUES — histoire, mentions légales, CGV, RGPD
+     ========================================================= */
+  .footer-legal{ margin-top:26px; padding-top:20px; border-top:1px solid rgba(246,241,231,0.12); display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:center; font-size:12px; opacity:0.7; }
+  .footer-legal a{ color:var(--cream); text-decoration:none; }
+  .footer-legal a:hover{ text-decoration:underline; }
+
+  .page-hero{ background:var(--paper); padding:120px 0 64px; }
+  .page-hero .wrap{ max-width:960px; }
+  .page-hero h1{ font-size:clamp(34px,5vw,56px); margin:18px 0 14px; }
+  .page-hero p{ color:var(--ink-soft); font-size:17px; max-width:660px; }
+
+  .legal-section{ background:var(--paper); padding:0 0 90px; }
+  .legal-prose{ max-width:720px; }
+  .legal-prose .legal-block{ margin-bottom:44px; }
+  .legal-prose h2{ font-size:24px; margin-bottom:12px; }
+  .legal-prose h3{ font-size:17px; margin:18px 0 8px; }
+  .legal-prose p{ color:var(--ink-soft); font-size:15px; line-height:1.7; margin-bottom:12px; }
+  .legal-prose ul{ margin:0 0 14px; padding-left:20px; }
+  .legal-prose li{ color:var(--ink-soft); font-size:15px; line-height:1.6; margin-bottom:6px; }
+  .legal-prose strong{ color:var(--ink); font-weight:600; }
+  .legal-prose a{ color:var(--sage-dark); text-decoration:underline; }
+  .legal-prose .legal-date{ font-size:13px; color:var(--ink-soft); opacity:0.75; margin-top:20px; }
+  .legal-prose .legal-note{ font-size:13px; color:var(--ink-soft); opacity:0.85; border-top:1px solid var(--line); padding-top:16px; margin-top:44px; }
+
+  .story-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .story-media img{ width:100%; border-radius:10px; box-shadow:0 24px 60px rgba(0,0,0,0.18); }
+  .story-copy p{ color:var(--ink-soft); font-size:16px; line-height:1.75; margin-bottom:16px; }
+  .story-copy p:first-child::first-letter{ font-family:'Fraunces',serif; font-size:54px; float:left; line-height:.8; margin:6px 10px 0 0; color:var(--honey); }
+  .values-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .value-card{ background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:34px 28px; text-align:center; }
+  .value-card .value-icon{ width:54px; height:54px; margin:0 auto 18px; border-radius:50%; background:rgba(198,158,74,0.14); color:var(--honey); display:flex; align-items:center; justify-content:center; }
+  .value-card h3{ font-size:19px; margin-bottom:8px; }
+  .value-card p{ color:var(--ink-soft); font-size:14px; line-height:1.65; }
+  .story-cta{ text-align:center; margin-top:14px; }
+  @media (max-width:780px){ .story-grid{ grid-template-columns:1fr; gap:34px; } .values-grid{ grid-template-columns:1fr; } }

@@ -1,21 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="assets/js/head.js"></script>
-<title>Velora — Panier</title>
-<meta name="description" content="Votre panier Velora. Livraison offerte dès 50€ d'achat, satisfait ou remboursé 30 jours.">
-<meta property="og:title" content="Velora — Panier">
-<meta property="og:description" content="Votre panier Velora. Livraison offerte dès 50€ d'achat.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://velora.fr/panier.html">
-<meta property="og:locale" content="fr_FR">
+<title>Mentions légales — Velora</title>
+<meta name="description" content="Mentions légales du site Velora : identité de l'éditeur, hébergement et coordonnées.">
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<link rel="canonical" href="https://velora.fr/panier.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -35,61 +28,66 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span id="cartBadge" class="cart-badge">0</span>
       </a>
-      <a href="index.html#espaces" class="nav-cta">Offrir son hamac</a>
+      <a href="produit.html?id=hamac" class="nav-cta">Offrir son hamac</a>
     </div>
   </div>
   <div id="progressBar"></div>
 </nav>
 
-<section class="section-pad" id="panierPage">
+<section class="page-hero">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Votre commande</div>
-      <h2>Panier</h2>
-    </div>
-    <div id="panierContent">
-      <div class="panier-empty" id="panierEmpty">
-        <p>Votre panier est vide.</p>
-        <a href="index.html#espaces" class="btn-primary" style="margin-top:20px;display:inline-block;">Découvrir nos produits</a>
-      </div>
-      <div id="panierItems" style="display:none;"></div>
-      <div id="panierFooter" style="display:none;">
-        <div class="panier-total">
-          <span>Total</span>
-          <strong id="panierTotalAmount">0,00€</strong>
-        </div>
-        <button class="btn-primary btn-full" id="checkoutBtn">Passer la commande</button>
-        <p class="detail-note" style="text-align:center;margin-top:10px;">Livraison offerte dès 50€ d'achat · Paiement sécurisé Stripe</p>
-        <button class="btn-clear" id="clearCartBtn">Vider le panier</button>
-      </div>
-    </div>
+    <div class="eyebrow">Informations légales</div>
+    <h1>Mentions légales</h1>
+    <p>Conformément aux dispositions légales en vigueur, voici les informations relatives à l'éditeur et à l'hébergeur du site Velora.</p>
   </div>
 </section>
 
-<div id="cartOverlay" class="cart-overlay"></div>
-<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Panier">
-  <div class="cart-drawer-head">
-    <div class="cart-drawer-title">Votre panier <span class="drawer-count" id="drawerCount">0</span></div>
-    <button class="cart-drawer-close" id="drawerClose" aria-label="Fermer le panier">✕</button>
-  </div>
-  <div class="cart-shipping">
-    <p id="shippingMsg">Plus que <strong>50,00€</strong> pour la livraison offerte</p>
-    <div class="shipping-bar"><span id="shippingBar"></span></div>
-  </div>
-  <div id="drawerSuggestion"></div>
-  <div class="cart-drawer-items" id="drawerItems"></div>
-  <div class="cart-drawer-foot">
-    <div class="drawer-total">
-      <span>Total</span>
-      <strong id="drawerTotal">0,00€</strong>
+<section class="legal-section">
+  <div class="wrap">
+    <div class="legal-prose">
+
+      <div class="legal-block">
+        <h2>Éditeur du site</h2>
+        <p>Le site Velora est édité par :</p>
+        <ul>
+          <li><strong>Nom de l'entreprise</strong> : <em>[Nom de votre entreprise]</em></li>
+          <li><strong>Forme juridique</strong> : <em>[SAS / SARL / EI / Auto-entrepreneur]</em></li>
+          <li><strong>Capital social</strong> : <em>[Montant] €</em></li>
+          <li><strong>Siège social</strong> : <em>[Adresse complète, code postal, ville]</em></li>
+          <li><strong>RCS</strong> : <em>[Ville] — SIRET [000 000 000 00000]</em></li>
+          <li><strong>Numéro de TVA intracommunautaire</strong> : <em>[FR 00 000000000]</em></li>
+          <li><strong>Directeur de la publication</strong> : <em>[Prénom NOM]</em></li>
+          <li><strong>Contact</strong> : <a href="mailto:hello@velora.fr">hello@velora.fr</a></li>
+        </ul>
+      </div>
+
+      <div class="legal-block">
+        <h2>Hébergement</h2>
+        <p>Le site est hébergé par :</p>
+        <ul>
+          <li><strong>Nom de l'hébergeur</strong> : <em>[Nom de l'hébergeur]</em></li>
+          <li><strong>Adresse</strong> : <em>[Adresse complète de l'hébergeur]</em></li>
+          <li><strong>Contact</strong> : <em>[site web ou téléphone de l'hébergeur]</em></li>
+        </ul>
+      </div>
+
+      <div class="legal-block">
+        <h2>Propriété intellectuelle</h2>
+        <p>L'ensemble des éléments présents sur ce site (textes, images, graphismes, logo, marque, structure) est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive de Velora. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+      </div>
+
+      <div class="legal-block">
+        <h2>Responsabilité</h2>
+        <p>Velora s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Les erreurs ou omissions qui pourraient survenir ne sauraient engager la responsabilité de l'éditeur.</p>
+      </div>
+
+      <p class="legal-date">Dernière mise à jour : 4 août 2026</p>
+
+      <p class="legal-note">Besoin d'aide ? Contactez-nous à <a href="mailto:hello@velora.fr">hello@velora.fr</a> — une vraie personne (pas un robot) vous répond.</p>
+
     </div>
-    <a href="panier.html" class="btn-primary btn-full">Passer la commande</a>
-    <div class="pay-badges" aria-hidden="true">
-      <span>Visa</span><span>Mastercard</span><span>Stripe</span><span class="pay-secure">🔒 Paiement sécurisé</span>
-    </div>
-    <p class="detail-note">Livraison offerte dès 50€ · Retour 30 jours</p>
   </div>
-</aside>
+</section>
 
 <footer>
   <div class="wrap">
@@ -137,8 +135,6 @@
 
 <script src="assets/js/produits.js"></script>
 <script src="assets/js/panier.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/panier-page.js"></script>
 
 </body>
 </html>
