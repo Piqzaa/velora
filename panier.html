@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="assets/js/head.js"></script>
 <title>Velora — Panier</title>
+<meta name="description" content="Votre panier Velora. Livraison offerte dès 50€ d'achat, satisfait ou remboursé 30 jours.">
+<meta property="og:title" content="Velora — Panier">
+<meta property="og:description" content="Votre panier Velora. Livraison offerte dès 50€ d'achat.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://velora.fr/panier.html">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="canonical" href="https://velora.fr/panier.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
@@ -57,6 +66,31 @@
   </div>
 </section>
 
+<div id="cartOverlay" class="cart-overlay"></div>
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Panier">
+  <div class="cart-drawer-head">
+    <div class="cart-drawer-title">Votre panier <span class="drawer-count" id="drawerCount">0</span></div>
+    <button class="cart-drawer-close" id="drawerClose" aria-label="Fermer le panier">✕</button>
+  </div>
+  <div class="cart-shipping">
+    <p id="shippingMsg">Plus que <strong>50,00€</strong> pour la livraison offerte</p>
+    <div class="shipping-bar"><span id="shippingBar"></span></div>
+  </div>
+  <div id="drawerSuggestion"></div>
+  <div class="cart-drawer-items" id="drawerItems"></div>
+  <div class="cart-drawer-foot">
+    <div class="drawer-total">
+      <span>Total</span>
+      <strong id="drawerTotal">0,00€</strong>
+    </div>
+    <a href="panier.html" class="btn-primary btn-full">Passer la commande</a>
+    <div class="pay-badges" aria-hidden="true">
+      <span>Visa</span><span>Mastercard</span><span>Stripe</span><span class="pay-secure">🔒 Paiement sécurisé</span>
+    </div>
+    <p class="detail-note">Livraison offerte dès 50€ · Retour 30 jours</p>
+  </div>
+</aside>
+
 <footer>
   <div class="wrap">
     <div class="footer-top">
@@ -76,103 +110,30 @@
       <div>
         <h4>À propos</h4>
         <ul>
-          <li><a href="index.html">Notre histoire</a></li>
+          <li><a href="index.html#pourquoi">Notre histoire</a></li>
           <li><a href="index.html#avis">Avis clients</a></li>
         </ul>
       </div>
       <div>
         <h4>Aide</h4>
         <ul>
-          <li><a href="index.html">Livraison</a></li>
-          <li><a href="index.html">Politique de retour</a></li>
-          <li><a href="index.html">Contact</a></li>
+          <li><a href="index.html#faq">Livraison</a></li>
+          <li><a href="index.html#faq">Politique de retour</a></li>
+          <li><a href="mailto:hello@velora.fr">Contact</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 Velora. Tous droits réservés.</div>
-      <div>Maquette de démonstration — images Unsplash à remplacer</div>
+      <div>Fait avec soin pour les chats.</div>
     </div>
   </div>
 </footer>
 
 <script src="assets/js/produits.js"></script>
 <script src="assets/js/panier.js"></script>
-<script>
-  function renderPanier() {
-    const cart = getCart();
-    const emptyEl = document.getElementById('panierEmpty');
-    const itemsEl = document.getElementById('panierItems');
-    const footerEl = document.getElementById('panierFooter');
+<script src="assets/js/script.js"></script>
+<script src="assets/js/panier-page.js"></script>
 
-    if (!cart.length) {
-      emptyEl.style.display = '';
-      itemsEl.style.display = 'none';
-      footerEl.style.display = 'none';
-      return;
-    }
-
-    emptyEl.style.display = 'none';
-    itemsEl.style.display = '';
-    footerEl.style.display = '';
-
-    itemsEl.innerHTML = cart.map(item => {
-      const p = produits[item.id];
-      if (!p) return '';
-      const total = (p.price * item.qty).toFixed(2).replace('.', ',');
-      return '<div class="panier-item">' +
-        '<img src="' + p.images[0] + '" alt="' + p.name + '" class="panier-item-img">' +
-        '<div class="panier-item-info">' +
-          '<a href="produit.html?id=' + p.id + '" class="panier-item-name">' + p.name + '</a>' +
-          '<span class="panier-item-price">' + p.price.toFixed(2).replace('.', ',') + '€</span>' +
-        '</div>' +
-        '<div class="panier-item-qty">' +
-          '<button class="qty-btn-sm" data-id="' + p.id + '" data-action="minus">−</button>' +
-          '<span>' + item.qty + '</span>' +
-          '<button class="qty-btn-sm" data-id="' + p.id + '" data-action="plus">+</button>' +
-        '</div>' +
-        '<div class="panier-item-total">' + total + '€</div>' +
-        '<button class="panier-item-remove" data-id="' + p.id + '" aria-label="Supprimer">✕</button>' +
-      '</div>';
-    }).join('');
-
-    document.getElementById('panierTotalAmount').textContent =
-      cartTotal().toFixed(2).replace('.', ',') + '€';
-
-    // Qty buttons
-    itemsEl.querySelectorAll('.qty-btn-sm').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        const cart = getCart();
-        const item = cart.find(i => i.id === id);
-        if (!item) return;
-        if (btn.dataset.action === 'plus') updateQty(id, item.qty + 1);
-        else updateQty(id, item.qty - 1);
-        renderPanier();
-      });
-    });
-
-    // Remove buttons
-    itemsEl.querySelectorAll('.panier-item-remove').forEach(btn => {
-      btn.addEventListener('click', () => {
-        removeFromCart(btn.dataset.id);
-        renderPanier();
-      });
-    });
-  }
-
-  document.getElementById('checkoutBtn').addEventListener('click', checkout);
-  document.getElementById('clearCartBtn').addEventListener('click', () => {
-    clearCart();
-    renderPanier();
-  });
-
-  renderPanier();
-
-  // Lenis
-  const lenis = new Lenis({ duration:1.2, easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)) });
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-</script>
 </body>
 </html>
