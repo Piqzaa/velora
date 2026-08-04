@@ -24,19 +24,19 @@ const produits = {
       'assets/images/hamac-fenetre1.avif'
     ],
     stripePriceId: null,
-    related: ['panier', 'lit-griffoir', 'hamac-sol']
+    related: ['panier', 'griffoir', 'hamac-sol']
   },
   panier: {
     id: 'panier',
-    name: 'Panier rotin Velora',
-    slug: 'panier-rotin-velora',
+    name: 'Tipi Velora',
+    slug: 'tipi-velora',
     price: 35.90,
     oldPrice: null,
     rating: 4.6,
     reviews: 112,
     badge: null,
-    shortDesc: 'Un lit rond en rotin tressé à la main, pour des nuits paisibles.',
-    longDesc: 'Tressé à la main par des artisans, ce panier en rotin naturel offre à votre chat un cocon douillet et élégant. Son coussin amovible se lave en machine, et sa structure robuste s\'intègre parfaitement à tous les intérieurs.',
+    shortDesc: 'Un tipi en rotin tressé à la main, pour des nuits paisibles.',
+    longDesc: 'Tressé à la main par des artisans, ce tipi en rotin naturel offre à votre chat un cocon douillet et élégant. Son coussin amovible se lave en machine, et sa structure robuste s\'intègre parfaitement à tous les intérieurs.',
     features: [
       'Rotin tressé à la main, robuste et durable',
       'Coussin amovible et lavable en machine',
@@ -44,13 +44,13 @@ const produits = {
       'Structure stable et sécurisée'
     ],
     images: [
-      'assets/images/panier-chat.avif',
-      'assets/images/panier-chat.avif',
-      'assets/images/panier-chat.avif',
-      'assets/images/panier-chat.avif'
+      'assets/images/tipie-avec-chat.png',
+      'assets/images/tipie.avif',
+      'assets/images/tipi.jpg',
+      'assets/images/tipie.avif'
     ],
     stripePriceId: null,
-    related: ['hamac', 'lit-griffoir', 'hamac-sol']
+    related: ['hamac', 'griffoir', 'hamac-sol']
   },
   griffoir: {
     id: 'griffoir',
@@ -70,10 +70,10 @@ const produits = {
       'S\'intègre à tous les intérieurs'
     ],
     images: [
-      'assets/images/lit-griffoir.avif',
-      'assets/images/lit-griffoir.avif',
-      'assets/images/lit-griffoir.avif',
-      'assets/images/lit-griffoir.avif'
+      'assets/images/panier-avec-chat.jpg',
+      'assets/images/panier.avif',
+      'assets/images/panier-avec-chat.avif',
+      'assets/images/panier.avif'
     ],
     stripePriceId: null,
     related: ['hamac', 'panier', 'hamac-sol']
@@ -96,7 +96,7 @@ const produits = {
       'Léger et déplaçable'
     ],
     images: [
-      'assets/images/hamac-sol.avif',
+      'assets/images/hamac-sol-chat.png',
       'assets/images/hamac-sol.avif',
       'assets/images/hamac-sol.avif',
       'assets/images/hamac-sol.avif'

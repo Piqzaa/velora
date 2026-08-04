@@ -180,6 +180,20 @@ document.addEventListener('click', (e) => {
 });
 
 // =====================================================
+// STICKY CTA MOBILE — barre fixe "ajouter au panier"
+// =====================================================
+const mobileCta = document.getElementById('mobileCtaBar');
+const produitSection = document.getElementById('produit');
+if (mobileCta && produitSection) {
+  function updateMobileCta() {
+    const rect = produitSection.getBoundingClientRect();
+    mobileCta.classList.toggle('show', rect.top < window.innerHeight * 0.6);
+  }
+  lenis.on('scroll', updateMobileCta);
+  updateMobileCta();
+}
+
+// =====================================================
 // CART DRAWER (page d'accueil uniquement)
 // =====================================================
 const FREE_SHIPPING = 50;
