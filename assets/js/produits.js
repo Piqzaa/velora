@@ -20,11 +20,10 @@ const produits = {
     images: [
       'assets/images/frame1.jpg',
       'assets/images/hamac-fenetre1.avif',
-      'assets/images/hamac-fenetre2.avif',
-      'assets/images/hamac-fenetre1.avif'
+      'assets/images/hamac-fenetre2.avif'
     ],
     stripePriceId: null,
-    related: ['panier', 'griffoir', 'hamac-sol']
+    related: ['panier', 'griffoir', 'transat']
   },
   panier: {
     id: 'panier',
@@ -44,13 +43,11 @@ const produits = {
       'Structure stable et sécurisée'
     ],
     images: [
-      'assets/images/tipie-avec-chat.png',
       'assets/images/tipie.avif',
-      'assets/images/tipi.jpg',
-      'assets/images/tipie.avif'
+      'assets/images/tipi.jpg'
     ],
     stripePriceId: null,
-    related: ['hamac', 'griffoir', 'hamac-sol']
+    related: ['hamac', 'griffoir', 'transat']
   },
   griffoir: {
     id: 'griffoir',
@@ -72,11 +69,10 @@ const produits = {
     images: [
       'assets/images/panier-avec-chat.jpg',
       'assets/images/panier.avif',
-      'assets/images/panier-avec-chat.avif',
-      'assets/images/panier.avif'
+      'assets/images/panier-avec-chat.avif'
     ],
     stripePriceId: null,
-    related: ['hamac', 'panier', 'hamac-sol']
+    related: ['hamac', 'panier', 'transat']
   },
   transat: {
     id: 'transat',
@@ -96,9 +92,6 @@ const produits = {
       'Léger et déplaçable'
     ],
     images: [
-      'assets/images/hamac-sol-chat.png',
-      'assets/images/hamac-sol.avif',
-      'assets/images/hamac-sol.avif',
       'assets/images/hamac-sol.avif'
     ],
     stripePriceId: null,
