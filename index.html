@@ -3,11 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="assets/js/head.js"></script>
 <title>Velora — Le coin préféré de votre chat</title>
+<meta name="description" content="Le hamac fenêtre Velora transforme n'importe quelle vitre en poste d'observation, de sieste et de soleil pour votre chat. Sans perçage, installé en 30 secondes. Satisfait ou remboursé 30 jours.">
+<meta property="og:title" content="Velora — Le coin préféré de votre chat">
+<meta property="og:description" content="Hamac fenêtre et paniers en rotin pensés pour le confort naturel de votre chat. Sans perçage, installé en 30 secondes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://velora.fr/">
+<meta property="og:image" content="https://velora.fr/assets/images/hamac-fenetre1.avif">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="canonical" href="https://velora.fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Hamac fenêtre Velora",
+      "image": ["https://velora.fr/assets/images/frame1.jpg", "https://velora.fr/assets/images/hamac-fenetre1.avif", "https://velora.fr/assets/images/hamac-fenetre2.avif"],
+      "description": "Hamac de fenêtre pour chat, sans perçage, installé en 30 secondes. Ventouses renforcées jusqu'à 15 kg, tissu lavable en machine.",
+      "brand": { "@type": "Brand", "name": "Velora" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "214" },
+      "offers": { "@type": "Offer", "price": "39.90", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Le hamac tient-il sur toutes les fenêtres ?", "acceptedAnswer": { "@type": "Answer", "text": "Il fonctionne sur toute vitre lisse et propre. Une notice détaille les cas particuliers (double vitrage texturé, fenêtre PVC ancienne, etc.)." } },
+        { "@type": "Question", "name": "Et si mon chat ne l'utilise pas ?", "acceptedAnswer": { "@type": "Answer", "text": "Donnez-lui 48 heures : posez-y une friandise ou un t-shirt à votre odeur. La grande majorité des chats adoptent leur hamac dans la première semaine. Et si vraiment il boude, vous êtes remboursé pendant 30 jours." } },
+        { "@type": "Question", "name": "Quel poids maximum supporte-t-il ?", "acceptedAnswer": { "@type": "Answer", "text": "Les ventouses renforcées supportent jusqu'à 15 kg, adapté à la quasi-totalité des chats adultes." } }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div id="cursorTrail"></div>
@@ -35,7 +69,7 @@
 <section class="hero">
   <div class="hero-bg">
     <img id="heroPoster" src="assets/images/frame1.jpg" alt="">
-    <video id="heroVideo" autoplay loop muted playsinline preload="auto" poster="assets/images/frame1.jpg"><source src="assets/images/video-chat-hamac.mp4" type="video/mp4"></video>
+    <video id="heroVideo" autoplay loop muted playsinline preload="none" poster="assets/images/frame1.jpg"><source src="assets/images/video-chat-hamac.mp4" type="video/mp4"></video>
     <div class="vignette"></div>
   </div>
   <div class="wrap">
@@ -47,15 +81,12 @@
         <a href="produit.html?id=hamac" class="btn-primary btn-hero-cta">Commander maintenant 🐾</a>
         <div class="price-tag">à partir de <strong>39,90€</strong></div>
       </div>
-      <div class="hero-reassurance">
-        <span>✓ Expédié sous 24/48h</span>
-        <span>✓ Satisfait ou Chat-isfait 30j</span>
-      </div>
-      <div class="stars"><span class="stars-icons">★★★★★</span> <span data-count-to="4.9" data-decimals="1">0</span>/5 — déjà adopté par <span data-count-to="214">0</span> chats</div>
       <div class="hero-assurances">
+        <span>Expédié sous 24/48h</span>
         <span>Livraison offerte dès 50€</span>
         <span>Satisfait ou remboursé 30 jours</span>
       </div>
+      <div class="stars"><span class="stars-icons">★★★★★</span> <span data-count-to="4.9" data-decimals="1">0</span>/5 — déjà adopté par <span data-count-to="214">0</span> chats</div>
     </div>
   </div>
   <a href="#confiance" class="scroll-cue" aria-label="Défiler vers le bas"><span></span></a>
@@ -90,32 +121,32 @@
       <p>Un chat passe plus de <em>15 heures</em> par jour à dormir. Voici comment il occupe les autres — et ce qu'il attend de vous.</p>
     </div>
     <div class="dayline reveal">
-      <div class="dayline-item">
-        <div class="dayline-dot"><span>🪟</span></div>
+      <div class="dayline-item" data-hour="7">
+        <div class="dayline-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h18M10 3v18"/></svg></div>
         <div class="dayline-card">
           <span class="dayline-time">7h00 — le matin</span>
           <h3>Poste d'observation</h3>
           <p>Surveiller la rue, le jardin, les passants : son occupation favorite, du haut de sa fenêtre, sans effort.</p>
         </div>
       </div>
-      <div class="dayline-item">
-        <div class="dayline-dot"><span>☀️</span></div>
+      <div class="dayline-item" data-hour="12">
+        <div class="dayline-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg></div>
         <div class="dayline-card">
           <span class="dayline-time">12h00 — la pause</span>
           <h3>Bain de soleil</h3>
           <p>À midi, la fenêtre est l'endroit le plus chaud de la maison. Le hamac capte cette chaleur toute la journée.</p>
         </div>
       </div>
-      <div class="dayline-item">
-        <div class="dayline-dot"><span>💤</span></div>
+      <div class="dayline-item" data-hour="15">
+        <div class="dayline-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4a8 8 0 1 0 11 11A8.5 8.5 0 0 1 9 4z"/><path d="M17 3v3M15.5 4.5h3"/></svg></div>
         <div class="dayline-card">
           <span class="dayline-time">15h00 — la sieste</span>
           <h3>Le gros dodo</h3>
           <p>Suspendu, moelleux, à l'écart du sol : l'endroit rêvé pour une vraie sieste sans être dérangé.</p>
         </div>
       </div>
-      <div class="dayline-item">
-        <div class="dayline-dot"><span>🌙</span></div>
+      <div class="dayline-item" data-hour="20">
+        <div class="dayline-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4a8 8 0 1 0 11 11A8.5 8.5 0 0 1 9 4z"/></svg></div>
         <div class="dayline-card">
           <span class="dayline-time">20h00 — le soir</span>
           <h3>Le rituel du soir</h3>
@@ -133,10 +164,10 @@
 <section class="section-pad product-section" id="produit">
   <div class="wrap">
     <div class="product-grid">
-      <div class="product-gallery reveal">
-        <img class="g-main" src="assets/images/frame1.jpg" alt="Hamac fenêtre Velora installé">
-        <img src="assets/images/hamac-fenetre1.avif" alt="Chat sur le hamac, vue rapprochée">
-        <img src="assets/images/hamac-fenetre2.avif" alt="Détail du tissu et des ventouses">
+      <div class="product-gallery reveal window-frame">
+        <img class="g-main" src="assets/images/frame1.jpg" alt="Hamac fenêtre Velora installé" loading="lazy">
+        <img src="assets/images/hamac-fenetre1.avif" alt="Chat sur le hamac, vue rapprochée" loading="lazy">
+        <img src="assets/images/hamac-fenetre2.avif" alt="Détail du tissu et des ventouses" loading="lazy">
         <div class="gallery-float-card">
           <span class="float-stars">★★★★★</span>
           <strong>4.9/5</strong>
@@ -153,15 +184,18 @@
           <span class="promo-chip">Promo -20%</span>
           <div class="countdown">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Se termine dans <strong id="countdown">00:00:00</strong></span>
+            <span>Prochain réapprovisionnement dans <strong id="countdown">00:00:00</strong></span>
           </div>
         </div>
         <div class="stock-row">
           <span class="stock-dot"></span>
-          Il en reste <strong>14</strong> en stock — une seule production par mois
+          Il en reste <strong>14</strong> — réapprovisionné une fois par mois
           <div class="stock-bar"><span style="width:47%"></span></div>
         </div>
-        <div class="product-note">Livraison offerte · Garantie satisfait ou remboursé 30 jours</div>
+        <p class="delivery-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="14" height="10" rx="1.5"/><path d="M15 8h4l3 3.5V14h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M9 18h6"/></svg>
+          <span><strong>Livraison offerte dès 50€ d'achat</strong> — expédié sous 24h</span>
+        </p>
         <div class="trust-badges">
           <span class="trust-badge">Ventouses 15 kg</span>
           <span class="trust-badge">Tissu lavable machine</span>
@@ -187,7 +221,7 @@
   <div class="wrap">
     <div class="install-grid">
       <div class="install-media reveal">
-        <img src="assets/images/hamac-fenetre2.avif" alt="Détail des ventouses du hamac Velora">
+        <img src="assets/images/hamac-fenetre2.avif" alt="Détail des ventouses du hamac Velora" loading="lazy">
         <div class="install-stamp">Sans perçage<br><strong>30 secondes</strong></div>
       </div>
       <div class="install-content reveal">
@@ -236,12 +270,12 @@
     <div class="espaces-grid reveal">
       <article class="espace-card espace-featured">
         <a href="produit.html?id=hamac" class="espace-img">
-          <img src="assets/images/frame1.jpg" alt="Hamac fenêtre Velora">
+          <img src="assets/images/hamac-fenetre1.avif" alt="Hamac fenêtre Velora" loading="lazy">
           <span class="espace-btn">Découvrir</span>
           <span class="espace-badge">Best-seller</span>
         </a>
         <div class="espace-body">
-          <span class="espace-emoji">🪟</span>
+          <span class="espace-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h18M10 3v18"/></svg></span>
           <div>
             <h3>Poste d'observation</h3>
             <p class="espace-sub">Hamac fenêtre Velora</p>
@@ -256,14 +290,14 @@
       </article>
       <article class="espace-card">
         <a href="produit.html?id=panier" class="espace-img">
-          <img src="assets/images/tipie-avec-chat.png" alt="Tipi Velora">
+          <img src="assets/images/tipie.avif" alt="Tipi Velora" loading="lazy">
           <span class="espace-btn">Découvrir</span>
         </a>
         <div class="espace-body">
-          <span class="espace-emoji">🧺</span>
+          <span class="espace-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L22 20 H2 Z"/><path d="M12 3 V20"/></svg></span>
           <h3>Cocon douillet</h3>
           <p class="espace-sub">Tipi Velora</p>
-          <p class="espace-desc">Un cocon douillet pour des siestes paisibles.</p>
+          <p class="espace-desc">Un tipi en rotin tressé à la main, posé sur son coussin moelleux lavable en machine : le refuge des siestes profondes, même pour un chat de 16 ans.</p>
           <div class="espace-price">35,90€</div>
           <div class="espace-actions">
             <button class="btn-primary btn-sm add-to-cart" data-id="panier" data-label="Ajouter au panier">Ajouter au panier</button>
@@ -273,14 +307,14 @@
       </article>
       <article class="espace-card">
         <a href="produit.html?id=griffoir" class="espace-img">
-          <img src="assets/images/panier-avec-chat.jpg" alt="Panier griffoir Velora">
+          <img src="assets/images/panier-avec-chat.jpg" alt="Panier griffoir Velora" loading="lazy">
           <span class="espace-btn">Découvrir</span>
         </a>
         <div class="espace-body">
-          <span class="espace-emoji">💤</span>
+          <span class="espace-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="10" r="2.6"/><circle cx="17" cy="10" r="2.6"/><circle cx="12" cy="9" r="2.6"/><ellipse cx="12" cy="16" rx="5.4" ry="3"/></svg></span>
           <h3>Dodo &amp; griffades</h3>
           <p class="espace-sub">Panier griffoir</p>
-          <p class="espace-desc">Dodo et griffades, le meilleur des deux mondes.</p>
+          <p class="espace-desc">Rotin naturel que votre chat peut griffer sans retenue, puis en faire son couchage : le deux-en-un qui épargne le canapé.</p>
           <div class="espace-price">29,90€</div>
           <div class="espace-actions">
             <button class="btn-primary btn-sm add-to-cart" data-id="griffoir" data-label="Ajouter au panier">Ajouter au panier</button>
@@ -290,14 +324,14 @@
       </article>
       <article class="espace-card">
         <a href="produit.html?id=transat" class="espace-img">
-          <img src="assets/images/hamac-sol-chat.png" alt="Hamac transat Velora">
+<img src="assets/images/hamac-sol.avif" alt="Hamac transat Velora" loading="lazy">
           <span class="espace-btn">Découvrir</span>
         </a>
         <div class="espace-body">
-          <span class="espace-emoji">☀️</span>
+          <span class="espace-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg></span>
           <h3>Profiter du soleil</h3>
           <p class="espace-sub">Hamac transat</p>
-          <p class="espace-desc">Un bain de lumière au ras du sol.</p>
+          <p class="espace-desc">Un bain de lumière au ras du sol : une structure basse, idéale pour les chats âgés ou ceux qui préfèrent garder les pattes par terre.</p>
           <div class="espace-price">29,90€</div>
           <div class="espace-actions">
             <button class="btn-primary btn-sm add-to-cart" data-id="transat" data-label="Ajouter au panier">Ajouter au panier</button>
@@ -341,7 +375,7 @@
               <p>"Installé en 2 minutes, mon chat ne quitte plus la fenêtre. Le tissu a l'air vraiment solide."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Camille, Strasbourg</span>
               </div>
             </div>
@@ -353,7 +387,7 @@
               <p>"On hésitait avec un modèle Amazon à 15€, mais la qualité n'a rien à voir. Ça se sent au toucher."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Julien, Lyon</span>
               </div>
             </div>
@@ -365,7 +399,7 @@
               <p>"Mes deux chats se battent pour la place. J'en recommande un deuxième dans le panier."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Sarah, Bordeaux</span>
               </div>
             </div>
@@ -377,7 +411,7 @@
               <p>"Le bout de l'ancien canapé commence à s'en remettre. Le griffoir est beau ET efficace, un vrai deux-en-un."</p>
               <div class="review-product">Produit acheté : Panier griffoir</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Thomas, Nantes</span>
               </div>
             </div>
@@ -389,7 +423,7 @@
               <p>"Mon chat de 16 ans a enfin retrouvé un vrai cocon. Le coussin amovible se lave super facilement."</p>
               <div class="review-product">Produit acheté : Tipi Velora</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Élodie, Lille</span>
               </div>
             </div>
@@ -401,7 +435,7 @@
               <p>"Le service client a répondu en 20 minutes et m'a aidé à choisir la fenêtre la plus ensoleillée. Rare de nos jours."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Marc, Toulouse</span>
               </div>
             </div>
@@ -415,7 +449,7 @@
               <p>"Installé en 2 minutes, mon chat ne quitte plus la fenêtre. Le tissu a l'air vraiment solide."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Camille, Strasbourg</span>
               </div>
             </div>
@@ -427,7 +461,7 @@
               <p>"On hésitait avec un modèle Amazon à 15€, mais la qualité n'a rien à voir. Ça se sent au toucher."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Julien, Lyon</span>
               </div>
             </div>
@@ -439,7 +473,7 @@
               <p>"Mes deux chats se battent pour la place. J'en recommande un deuxième dans le panier."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Sarah, Bordeaux</span>
               </div>
             </div>
@@ -451,7 +485,7 @@
               <p>"Le bout de l'ancien canapé commence à s'en remettre. Le griffoir est beau ET efficace, un vrai deux-en-un."</p>
               <div class="review-product">Produit acheté : Panier griffoir</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Thomas, Nantes</span>
               </div>
             </div>
@@ -463,7 +497,7 @@
               <p>"Mon chat de 16 ans a enfin retrouvé un vrai cocon. Le coussin amovible se lave super facilement."</p>
               <div class="review-product">Produit acheté : Tipi Velora</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Élodie, Lille</span>
               </div>
             </div>
@@ -475,7 +509,7 @@
               <p>"Le service client a répondu en 20 minutes et m'a aidé à choisir la fenêtre la plus ensoleillée. Rare de nos jours."</p>
               <div class="review-product">Produit acheté : Hamac fenêtre</div>
               <div class="review-author">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client Velora" loading="lazy"
                 <span>Marc, Toulouse</span>
               </div>
             </div>
@@ -490,6 +524,24 @@
   </div>
 </section>
 
+<section class="section-pad board-section" id="communaute">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width:100%;text-align:center;">
+      <div class="eyebrow">La communauté</div>
+      <h2>Nos chats, chez eux, sur leur coin préféré</h2>
+      <p>Envoyez-nous une photo, on la punaise ici. <em>#MonCoinVelora</em></p>
+    </div>
+    <div class="board reveal">
+      <figure class="polaroid pol-1"><span class="pin"></span><img src="assets/images/hamac-fenetre1.avif" alt="Chat sur le hamac fenêtre Velora" loading="lazy"><figcaption>Oscar, poste d'observation — Lyon</figcaption></figure>
+      <figure class="polaroid pol-2"><span class="pin"></span><img src="assets/images/tipie.avif" alt="Tipi en rotin Velora" loading="lazy"><figcaption>Mimie dans son tipi — Nantes</figcaption></figure>
+      <figure class="polaroid pol-3"><span class="pin"></span><img src="assets/images/panier-avec-chat.jpg" alt="Chat dans le panier griffoir Velora" loading="lazy"><figcaption>Griffades contrôlées — Bordeaux</figcaption></figure>
+      <figure class="polaroid pol-4"><span class="pin"></span><img src="assets/images/hamac-fenetre2.avif" alt="Ventouses du hamac fenêtre Velora" loading="lazy"><figcaption>Ventouse verrouillée — Lille</figcaption></figure>
+      <figure class="polaroid pol-5"><span class="pin"></span><img src="assets/images/hamac-sol.avif" alt="Hamac transat Velora" loading="lazy"><figcaption>Le bain de soleil — Toulouse</figcaption></figure>
+      <figure class="polaroid pol-6"><span class="pin"></span><img src="assets/images/frame1.jpg" alt="Chat sur le hamac fenêtre Velora" loading="lazy"><figcaption>La sieste de 15h — Paris</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="section-pad" id="faq">
   <div class="wrap">
     <div class="section-head reveal">
@@ -497,38 +549,38 @@
       <h2>FAQ</h2>
       <p>La vraie FAQ — celle que les humains se posent, validée par les chats.</p>
     </div>
-    <div class="faq reveal">
+    <div class="faq reveal" role="region" aria-label="Questions fréquentes">
       <div class="faq-item open">
         <div class="faq-q">Le hamac tient-il sur toutes les fenêtres ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Il fonctionne sur toute vitre lisse et propre. Une notice détaille les cas particuliers (double vitrage texturé, fenêtre PVC ancienne, etc.).</p></div>
+        <div class="faq-a" id="faq-a-1"><p>Il fonctionne sur toute vitre lisse et propre. Une notice détaille les cas particuliers (double vitrage texturé, fenêtre PVC ancienne, etc.).</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Et si mon chat ne l'utilise pas ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Donnez-lui 48 heures : posez-y une friandise ou un t-shirt à votre odeur. La grande majorité des chats adoptent leur hamac dans la première semaine — les autres changent d'avis dès que le soleil revient. Et si vraiment il boude, vous êtes remboursé pendant 30 jours.</p></div>
+        <div class="faq-a" id="faq-a-2"><p>Donnez-lui 48 heures : posez-y une friandise ou un t-shirt à votre odeur. La grande majorité des chats adoptent leur hamac dans la première semaine — les autres changent d'avis dès que le soleil revient. Et si vraiment il boude, vous êtes remboursé pendant 30 jours.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Quel poids maximum supporte-t-il ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Les ventouses renforcées supportent jusqu'à 15 kg, adapté à la quasi-totalité des chats adultes.</p></div>
+        <div class="faq-a" id="faq-a-3"><p>Les ventouses renforcées supportent jusqu'à 15 kg, adapté à la quasi-totalité des chats adultes.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Ça tient sur du double vitrage ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Oui. Les ventouses adhèrent à toute vitre lisse et propre, double vitrage inclus. Évitez simplement les vitres texturées, givrées ou dépoliées.</p></div>
+        <div class="faq-a" id="faq-a-4"><p>Oui. Les ventouses adhèrent à toute vitre lisse et propre, double vitrage inclus. Évitez simplement les vitres texturées, givrées ou dépoliées.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Peut-on l'offrir ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Oui, et c'est le genre de cadeau qui se remarque : on n'offre pas un hamac, on offre des heures de sieste. Nous pouvons l'envoyer directement au destinataire avec un mot doux.</p></div>
+        <div class="faq-a" id="faq-a-5"><p>Oui, et c'est le genre de cadeau qui se remarque : on n'offre pas un hamac, on offre des heures de sieste. Nous pouvons l'envoyer directement au destinataire avec un mot doux.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Que se passe-t-il si une ventouse lâche ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>On vous envoie un jeu de remplacement gratuit sous 48h. Et si le problème persiste, la garantie satisfait ou remboursé couvre le tout pendant 30 jours.</p></div>
+        <div class="faq-a" id="faq-a-6"><p>On vous envoie un jeu de remplacement gratuit sous 48h. Et si le problème persiste, la garantie satisfait ou remboursé couvre le tout pendant 30 jours.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Puis-je le retourner s'il ne convient pas ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Oui, 30 jours pour changer d'avis, remboursement intégral sans justification.</p></div>
+        <div class="faq-a" id="faq-a-7"><p>Oui, 30 jours pour changer d'avis, remboursement intégral sans justification.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Combien de temps pour la livraison ? <span class="plus">+</span></div>
-        <div class="faq-a"><p>Comptez 3 à 5 jours ouvrés en France métropolitaine, livraison offerte dès 30€ d'achat.</p></div>
+        <div class="faq-a" id="faq-a-8"><p>Comptez 3 à 5 jours ouvrés en France métropolitaine, livraison offerte dès 50€ d'achat.</p></div>
       </div>
     </div>
     <div class="faq-cta reveal">
@@ -537,8 +589,7 @@
         <p>Notre équipe (humaine) répond en moins de 24h, sans jargon.</p>
       </div>
       <div class="faq-cta-actions">
-        <a href="#" class="btn-ghost">Nous écrire</a>
-        <button class="btn-light add-to-cart" data-id="hamac" data-label="Commander maintenant">Commander maintenant</button>
+        <a href="mailto:hello@velora.fr" class="btn-ghost">Nous écrire</a>        <button class="btn-light add-to-cart" data-id="hamac" data-label="Commander maintenant">Commander maintenant</button>
       </div>
     </div>
   </div>
@@ -554,6 +605,7 @@
     <p id="shippingMsg">Plus que <strong>50,00€</strong> pour la livraison offerte</p>
     <div class="shipping-bar"><span id="shippingBar"></span></div>
   </div>
+  <div id="drawerSuggestion"></div>
   <div class="cart-drawer-items" id="drawerItems"></div>
   <div class="cart-drawer-foot">
     <div class="drawer-total">
@@ -561,6 +613,9 @@
       <strong id="drawerTotal">0,00€</strong>
     </div>
     <a href="panier.html" class="btn-primary btn-full">Passer la commande</a>
+    <div class="pay-badges" aria-hidden="true">
+      <span>Visa</span><span>Mastercard</span><span>Stripe</span><span class="pay-secure">🔒 Paiement sécurisé</span>
+    </div>
     <p class="detail-note">Livraison offerte dès 50€ · Paiement sécurisé · Retour 30 jours</p>
   </div>
 </aside>
@@ -592,22 +647,22 @@
       <div>
         <h4>À propos</h4>
         <ul>
-          <li><a href="#">Notre histoire</a></li>
+          <li><a href="#pourquoi">Notre histoire</a></li>
           <li><a href="#avis">Avis clients</a></li>
         </ul>
       </div>
       <div>
         <h4>Aide</h4>
         <ul>
-          <li><a href="#">Livraison</a></li>
-          <li><a href="#">Politique de retour</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#faq">Livraison</a></li>
+          <li><a href="#faq">Politique de retour</a></li>
+          <li><a href="mailto:hello@velora.fr">Contact</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 Velora. Tous droits réservés.</div>
-      <div>Maquette de démonstration — images Unsplash à remplacer</div>
+      <div>Fait avec soin pour les chats.</div>
     </div>
   </div>
 </footer>
