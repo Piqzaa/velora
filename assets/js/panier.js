@@ -71,4 +71,20 @@ function checkout() {
   alert('Paiement Stripe à venir — total : ' + total.toFixed(2).replace('.', ',') + '€');
 }
 
+function showCartToast(name) {
+  let toast = document.getElementById('cartToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'cartToast';
+    toast.setAttribute('role', 'status');
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = '✓ Ajouté au panier' +
+    (name ? ' — <strong>' + name + '</strong>' : '') +
+    ' <a href="panier.html" class="toast-link">Voir le panier</a>';
+  toast.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
 document.addEventListener('DOMContentLoaded', updateCartBadge);

@@ -222,7 +222,8 @@
   document.getElementById('addToCartBtn').addEventListener('click', () => {
     if (!currentProduitId) return;
     addToCart(currentProduitId, currentQty);
-    alert('Ajouté au panier !');
+    const p = getProduit(currentProduitId);
+    showCartToast(p ? p.name : '');
   });
 
   // Buy now
