@@ -44,8 +44,12 @@
       <h1>Le coin <br>préféré <em>de votre chat</em>,<br> en 30 secondes.</h1>
       <p class="lead">Un hamac de fenêtre pensé pour transformer n'importe quelle vitre en poste d'observation, de sieste et de soleil.</p>
       <div class="btn-row">
-        <a href="produit.html?id=hamac" class="btn-primary">Commander maintenant 🐾</a>
+        <a href="produit.html?id=hamac" class="btn-primary btn-hero-cta">Commander maintenant 🐾</a>
         <div class="price-tag">à partir de <strong>39,90€</strong></div>
+      </div>
+      <div class="hero-reassurance">
+        <span>✓ Expédié sous 24/48h</span>
+        <span>✓ Satisfait ou Chat-isfait 30j</span>
       </div>
       <div class="stars"><span class="stars-icons">★★★★★</span> <span data-count-to="4.9" data-decimals="1">0</span>/5 — déjà adopté par <span data-count-to="214">0</span> chats</div>
       <div class="hero-assurances">
@@ -262,6 +266,7 @@
           <div class="espace-price">35,90€</div>
           <div class="espace-actions">
             <button class="btn-primary btn-sm add-to-cart" data-id="panier" data-label="Ajouter au panier">Ajouter au panier</button>
+            <a href="produit.html?id=panier" class="link-arrow">Voir le produit →</a>
           </div>
         </div>
       </article>
@@ -278,6 +283,7 @@
           <div class="espace-price">29,90€</div>
           <div class="espace-actions">
             <button class="btn-primary btn-sm add-to-cart" data-id="griffoir" data-label="Ajouter au panier">Ajouter au panier</button>
+            <a href="produit.html?id=griffoir" class="link-arrow">Voir le produit →</a>
           </div>
         </div>
       </article>
@@ -294,6 +300,7 @@
           <div class="espace-price">29,90€</div>
           <div class="espace-actions">
             <button class="btn-primary btn-sm add-to-cart" data-id="transat" data-label="Ajouter au panier">Ajouter au panier</button>
+            <a href="produit.html?id=transat" class="link-arrow">Voir le produit →</a>
           </div>
         </div>
       </article>
@@ -535,6 +542,27 @@
     </div>
   </div>
 </section>
+
+<div id="cartOverlay" class="cart-overlay"></div>
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Panier">
+  <div class="cart-drawer-head">
+    <div class="cart-drawer-title">Votre panier <span class="drawer-count" id="drawerCount">0</span></div>
+    <button class="cart-drawer-close" id="drawerClose" aria-label="Fermer le panier">✕</button>
+  </div>
+  <div class="cart-shipping">
+    <p id="shippingMsg">Plus que <strong>50,00€</strong> pour la livraison offerte</p>
+    <div class="shipping-bar"><span id="shippingBar"></span></div>
+  </div>
+  <div class="cart-drawer-items" id="drawerItems"></div>
+  <div class="cart-drawer-foot">
+    <div class="drawer-total">
+      <span>Total</span>
+      <strong id="drawerTotal">0,00€</strong>
+    </div>
+    <a href="panier.html" class="btn-primary btn-full">Passer la commande</a>
+    <p class="detail-note">Livraison offerte dès 50€ · Paiement sécurisé · Retour 30 jours</p>
+  </div>
+</aside>
 
 <footer>
   <div class="wrap">
