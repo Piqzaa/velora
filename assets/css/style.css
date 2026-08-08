@@ -167,6 +167,18 @@
   .footer-top li a:hover{ text-decoration:underline; }
   .footer-brand .logo{ color:var(--cream); }
   .footer-brand p{ margin-top:16px; font-size:14px; opacity:0.75; max-width:260px; }
+  .newsletter{ margin-top:28px; max-width:280px; }
+  .newsletter h4{ margin-bottom:8px; }
+  .newsletter-sub{ font-size:13px; opacity:0.7; line-height:1.5; margin-bottom:14px; }
+  .newsletter-form{ display:flex; gap:8px; }
+  .newsletter-form input{ flex:1; min-width:0; background:rgba(246,241,231,0.1); border:1px solid rgba(246,241,231,0.25); border-radius:999px; padding:10px 16px; font-size:14px; font-family:inherit; color:var(--cream); transition:border-color .2s, background .2s; }
+  .newsletter-form input::placeholder{ color:rgba(246,241,231,0.5); }
+  .newsletter-form input:focus{ outline:none; border-color:var(--honey); background:rgba(246,241,231,0.14); }
+  .newsletter-form .btn-sm{ background:var(--honey); color:var(--ink); border:1px solid var(--honey); flex-shrink:0; }
+  .newsletter-form .btn-sm:hover{ background:var(--cream); border-color:var(--cream); }
+  .newsletter-msg{ margin-top:10px; font-size:12.5px; line-height:1.4; min-height:1.4em; }
+  .newsletter-msg.is-ok{ color:#B9D0A6; }
+  .newsletter-msg.is-err{ color:rgba(246,241,231,0.85); }
   .footer-bottom{ border-top:1px solid rgba(246,241,231,0.18); padding-top:24px; display:flex; justify-content:space-between; font-size:13px; opacity:0.6; flex-wrap:wrap; gap:10px;}
   @media (max-width:780px){ .footer-top{ grid-template-columns:1fr 1fr; } }
 

@@ -88,3 +88,34 @@ function showCartToast(name) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+// Newsletter du footer — validation + confirmation
+function initNewsletter() {
+  const form = document.getElementById('newsletterForm');
+  const msg = document.getElementById('newsletterMsg');
+  if (!form || !msg) return;
+  const EMAIL_KEY = 'velora_newsletter';
+  let subscribed = false;
+  try { subscribed = localStorage.getItem(EMAIL_KEY) === '1'; } catch (err) {}
+  if (subscribed) {
+    msg.textContent = 'Vous êtes déjà inscrit.e, à très vite !';
+    msg.classList.add('is-ok');
+    form.style.display = 'none';
+    return;
+  }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    msg.classList.remove('is-ok', 'is-err');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = 'Merci de saisir une adresse email valide.';
+      msg.classList.add('is-err');
+      return;
+    }
+    try { localStorage.setItem(EMAIL_KEY, '1'); } catch (err) {}
+    msg.textContent = 'Merci ! À très vite dans votre boîte mail 💛';
+    msg.classList.add('is-ok');
+    form.reset();
+  });
+}
+document.addEventListener('DOMContentLoaded', initNewsletter);
