@@ -191,9 +191,10 @@
   .espace-btn{ position:absolute; bottom:20px; left:50%; transform:translateX(-50%) translateY(10px); background:var(--cream); color:var(--ink); padding:12px 24px; border-radius:999px; font-size:14px; font-weight:500; opacity:0; transition:opacity .3s ease, transform .3s ease; white-space:nowrap; }
   .espace-card:hover .espace-btn{ opacity:1; transform:translateX(-50%) translateY(0); }
   .espace-body{ padding:24px 26px 28px; }
-  .espace-icon{ display:block; width:30px; height:30px; color:var(--honey); margin-bottom:10px; }
-  .espace-body h3{ font-size:22px; margin-bottom:4px; }
-  .espace-sub{ font-size:14px; color:var(--ink-soft); margin-bottom:8px; }
+  .espace-head{ display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+  .espace-icon{ display:block; width:30px; height:30px; color:var(--honey); flex-shrink:0; }
+  .espace-head h3{ font-size:22px; margin-bottom:4px; }
+  .espace-sub{ font-size:14px; color:var(--ink-soft); margin-bottom:0; }
   .espace-desc{ font-size:15px; color:var(--ink-soft); line-height:1.6; }
   .espace-price{ display:inline-block; margin-top:14px; font-size:14px; color:var(--sage-dark); font-weight:600; }
 
@@ -412,9 +413,12 @@
   .espace-featured{ grid-column:1/-1; display:grid; grid-template-columns:1.05fr 1fr; }
   .espace-featured .espace-img{ aspect-ratio:auto; height:100%; min-height:380px; }
   .espace-featured .espace-body{ display:flex; flex-direction:column; justify-content:center; gap:12px; padding:44px 46px; }
-  .espace-featured .espace-body h3{ font-size:28px; }
+  .espace-featured .espace-head h3{ font-size:28px; }
   .espace-badge{ position:absolute; top:18px; left:18px; background:var(--honey); color:var(--ink); font-size:11px; font-weight:600; padding:6px 14px; border-radius:999px; letter-spacing:0.06em; text-transform:uppercase; z-index:3; }
-  .espace-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:6px; }
+  .espace-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:16px; }
+  .espace-actions .espace-price{ margin-top:0; }
+  .espace-actions .add-to-cart{ display:inline-flex; align-items:center; gap:8px; }
+  .espace-actions .icon-cart{ display:block; flex-shrink:0; }
   .btn-sm{ padding:12px 22px; font-size:14px; }
   .link-arrow{ font-size:14px; font-weight:500; color:var(--sage-dark); border-bottom:1px solid var(--sage-dark); padding-bottom:2px; transition:color .2s, border-color .2s; }
   .link-arrow:hover{ color:var(--ink); border-color:var(--ink); }
@@ -427,7 +431,9 @@
     .espace-featured{ display:flex; flex-direction:column; }
     .espace-featured .espace-img{ min-height:0; aspect-ratio:4/3; }
     .espace-featured .espace-body{ padding:24px 26px 28px; gap:8px; }
-    .espace-featured .espace-body h3{ font-size:22px; }
+    .espace-featured .espace-head h3{ font-size:22px; }
+    .espace-actions .add-to-cart{ width:44px; height:44px; padding:0; justify-content:center; }
+    .espace-actions .btn-label{ display:none; }
     .espaces-hint{ display:block; }
   }
 

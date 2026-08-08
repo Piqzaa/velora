@@ -179,11 +179,16 @@ startCountdown();
 
 // boutons "Ajouter au panier" (délégation globale)
 function flashAddedBtn(btn) {
-  const original = btn.getAttribute('data-label') || btn.textContent;
-  btn.textContent = '✓ Ajouté';
+  const labelEl = btn.querySelector('.btn-label');
+  const original = labelEl ? labelEl.textContent : (btn.getAttribute('data-label') || btn.textContent);
+  const setText = (t) => {
+    if (labelEl) { labelEl.textContent = t; if (!t) return; }
+    else btn.textContent = t;
+  };
+  setText('✓ Ajouté');
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = original;
+    setText(original);
     btn.disabled = false;
   }, 1500);
 }
