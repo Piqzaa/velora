@@ -331,13 +331,20 @@
   .dayline-time{ display:inline-block; font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage-dark); background:rgba(110,124,91,0.12); padding:5px 13px; border-radius:999px; margin-bottom:12px; }
   .dayline-card h3{ font-size:21px; margin-bottom:8px; }
   .dayline-card p{ color:var(--ink-soft); font-size:15px; }
+  .daylong-txt{ display:inline; }
+  .dayshort-txt{ display:none; }
   .dayline-cta{ text-align:center; margin-top:16px; }
   .dayline-cta-note{ display:block; margin-top:14px; color:var(--ink-soft); font-size:14px; font-style:italic; }
   @media (max-width:780px){
-    .dayline::before{ left:26px; }
-    .dayline-item{ width:100%; text-align:left; padding:0 0 40px 78px; margin:0; }
-    .dayline-item .dayline-dot{ left:0; right:auto; }
+    .dayline::before{ left:26px; top:-6px; bottom:-6px; }
+    .dayline-item{ width:100%; text-align:left; padding:0 0 44px 78px; margin:0; }
+    .dayline-item:nth-child(odd), .dayline-item:nth-child(even){ margin:0; text-align:left; padding:0 0 44px 78px; }
+    .dayline-item .dayline-dot{ left:0; right:auto; margin-left:1px; }
+    .dayline-card{ display:flex; flex-direction:column; justify-content:center; }
+    .dayline-card p{ font-size:14px; line-height:1.5; }
     .dayline-card:hover{ transform:none; }
+    .daylong-txt{ display:none; }
+    .dayshort-txt{ display:inline; }
   }
   .dayline-live-strip{ display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; max-width:720px; margin:0 auto 34px; padding:10px 20px; border-radius:999px; background:rgba(110,124,91,0.08); border:1px solid rgba(110,124,91,0.22); text-align:center; font-size:14px; color:var(--sage-dark); }
   .dayline-live-strip p{ margin:0; }
