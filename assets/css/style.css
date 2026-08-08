@@ -286,7 +286,7 @@
   }
 
   /* =========================================================
-     HERO — contraste CTA + respiration + scroll-cue
+     HERO — contraste CTA + respiration
      ========================================================= */
   .hero .eyebrow{ margin-bottom:28px; }
   .hero h1{ margin-bottom:30px; }
@@ -294,9 +294,6 @@
   .hero-assurances{ display:flex; gap:22px; flex-wrap:wrap; margin-top:28px; font-size:13px; color:rgba(246,241,231,0.78); }
   .hero-assurances span{ display:flex; align-items:center; gap:8px; }
   .hero-assurances span::before{ content:'✓'; color:var(--honey); font-weight:600; }
-  .scroll-cue{ position:absolute; bottom:30px; left:50%; transform:translateX(-50%); z-index:6; width:26px; height:42px; border:2px solid rgba(246,241,231,0.5); border-radius:999px; display:flex; justify-content:center; padding-top:8px; }
-  .scroll-cue span{ width:4px; height:8px; border-radius:999px; background:var(--cream); animation:cue 1.6s ease-in-out infinite; }
-  @keyframes cue{ 0%{opacity:0; transform:translateY(0);} 40%{opacity:1;} 100%{opacity:0; transform:translateY(12px);} }
 
   /* =========================================================
      TRUST BAR (marquee réassurance)
@@ -530,7 +527,6 @@
 
   @media (prefers-reduced-motion:reduce){
     .trust-track, .avis-track{ animation:none; }
-    .scroll-cue span{ animation:none; }
     .dayline-card:hover, .dayline-item:nth-child(odd) .dayline-card:hover, .dayline-item:nth-child(even) .dayline-card:hover{ transform:none; }
   }
 

@@ -103,20 +103,6 @@ document.querySelectorAll('[data-count-to]').forEach(el => {
   obs.observe(el);
 });
 
-// parallax hero text (optimisé rAF)
-const heroCopyEl = document.querySelector('.hero-copy');
-let heroScrollY = 0;
-if (lenis) {
-  lenis.on('scroll', ({ scroll }) => { heroScrollY = scroll; });
-} else {
-  window.addEventListener('scroll', () => { heroScrollY = window.scrollY; });
-}
-function updateParallax() {
-  if (heroCopyEl) heroCopyEl.style.transform = `translateY(${heroScrollY * 0.15}px)`;
-  requestAnimationFrame(updateParallax);
-}
-updateParallax();
-
 // hero video autoplay
 const heroVideo = document.getElementById('heroVideo');
 const heroPoster = document.getElementById('heroPoster');
