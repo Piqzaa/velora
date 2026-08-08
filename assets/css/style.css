@@ -64,7 +64,7 @@
   .nav-links{ display:flex; gap:36px; font-size:14px; }
   .nav-links a{ opacity:0.75; transition:opacity .2s; }
   .nav-links a:hover{ opacity:1; }
-  .nav-cta{ font-size:14px; border:1px solid var(--ink); padding:9px 20px; border-radius:999px; transition:background .2s, color .2s; }
+  .nav-cta{ font-size:14px; border:1px solid var(--ink); padding:9px 20px; border-radius:999px; transition:background .2s, color .2s; background:none; font-family:inherit; color:var(--ink); cursor:pointer; }
   .nav-cta:hover{ background:var(--ink); color:var(--cream); }
   .nav-mobile-hide{ display:flex; }
   #progressBar{ position:absolute; bottom:0; left:0; height:3px; width:0%; background:var(--honey); transition:width .1s linear; }

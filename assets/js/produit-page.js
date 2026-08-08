@@ -18,7 +18,10 @@ function initProductPage() {
   const metaOgDesc = document.querySelector('meta[property="og:description"]');
   if (metaOgDesc) metaOgDesc.setAttribute('content', p.shortDesc);
   const metaOgImg = document.querySelector('meta[property="og:image"]');
-  if (metaOgImg && p.images[0]) metaOgImg.setAttribute('content', window.location.origin + '/' + p.images[0].replace(/^\//, ''));
+  if (metaOgImg && p.images[0]) {
+    const base = /^https?:$/.test(window.location.protocol) ? window.location.origin : '';
+    metaOgImg.setAttribute('content', base ? base + '/' + p.images[0].replace(/^\//, '') : p.images[0]);
+  }
   document.getElementById('breadcrumbName').textContent = p.name;
 
   const windowSelectEl = document.getElementById('windowSelect');
